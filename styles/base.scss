@@ -1,9 +1,25 @@
+
+html,body{
+   height:100%;
+}
 body{
     margin:10px;
     font-family: Nunito,sans-serif;
+    position:relative;
 }
 
 @font-face {
     font-family: Nunito;
     src: url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 }
+
+
+.page_container{
+   display: flex;
+   flex-direction:column;
+   min-height: 100%;
+
+}
+
+//colors 
+$crail : #BF573F;
