@@ -1,0 +1,48 @@
+.item_sort{
+    margin-top:25px;
+    padding:0 25px 0;
+
+    & .item_sort__ul{
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    & .item_sort__li{
+       
+       display: flex;
+       justify-content: center;
+
+        .item_sort__btn{
+            width:100%;
+            font-size:0.8rem;
+            font-weight:bold;
+            padding:5px 0 5px 0;
+            cursor:pointer;
+
+        }
+
+
+
+    }
+
+    
+
+
+
+    & .item_sort__li.filter__img{
+        
+    
+        & svg{
+            width:20px;
+            height:20px;
+        }
+    }
+
+
+    & .item_sort__li.active{
+        color:$crail;
+    }
+
+    
+}

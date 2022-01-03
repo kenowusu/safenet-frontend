@@ -3,7 +3,7 @@ html,body{
    height:100%;
 }
 body{
-    margin:10px;
+    
     font-family: Nunito,sans-serif;
     position:relative;
 }
@@ -15,6 +15,7 @@ body{
 
 
 .page_container{
+   padding:20px;
    display: flex;
    flex-direction:column;
    min-height: 100%;
