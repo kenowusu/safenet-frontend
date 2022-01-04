@@ -22,7 +22,7 @@ const MenuSidebar = () => {
                 
                
                 <li className="menu__sidebar__li">
-                    <Link href="/passwords">
+                    <Link href="/notes">
                         <a className="menu__sidebar__link" >
                         <div className="menu__sidebar__imgcont">
                             <NoteSvg/>
@@ -33,7 +33,7 @@ const MenuSidebar = () => {
                     </Link>
                 </li>
                 <li className="menu__sidebar__li">
-                    <Link href="/passwords">
+                    <Link href="/notes">
                         <a className="menu__sidebar__link" >
                         <div className="menu__sidebar__imgcont">
                             <SecurityCheckSvg/>
