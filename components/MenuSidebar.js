@@ -4,9 +4,17 @@ import NoteSvg from '../public/icons/note.svg';
 import SecurityCheckSvg from '../public/icons/security-check.svg';
 import GeneratePasswordSvg from '../public/icons/generate-password.svg';
 
+import AddPassword from '../components/AddPassword';
+
 const MenuSidebar = () => {
     return ( 
         <div className="menu__sidebar">
+
+            {/* addPassword */}
+
+            <AddPassword/>
+
+
             <ul className="menu__sidebar__ul">
                 <li className="menu__sidebar__li">
                     <Link href="/passwords">
