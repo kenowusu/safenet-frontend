@@ -7,6 +7,17 @@ html,body{
      
      font-family: Nunito,sans-serif;
      position:relative;
+
+
+     @include md{
+         display: grid;
+        
+
+         
+        
+
+
+     }
  }
  
  

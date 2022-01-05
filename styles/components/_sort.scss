@@ -22,7 +22,7 @@
 
         }
 
-
+     grid-area: sort;
 
     }
 
@@ -43,6 +43,10 @@
     & .item_sort__li.active{
         color:$crail;
     }
+    
 
+    @include md{
+       
+    }
     
 }
