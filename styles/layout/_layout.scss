@@ -23,7 +23,7 @@ html,body{
         padding:0;
         display: grid;
         grid-template-columns: 90px 70%;
-        grid-template-rows: 10% 10% auto;
+        grid-template-rows: 40px 80px auto;
         column-gap: 15px;
         grid-template-areas:
              "menusidebar header"
