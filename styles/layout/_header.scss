@@ -1,17 +1,34 @@
 
 .header{
-    
+     
+    @include lg{
+        margin-top: 20px;
+    }
     .searchbox{
         background-color:#e3e3e3;
+
+
+        @include lg{
+            height: 40px;
+        }
     }
     .searchbox__imgcont{
        padding:5px;
        width:20px;
        font-size:0.8rem;
 
+        @include lg{
+            width:auto;
+        }
+
        & svg{
            width:10px;
            height:22px;
+
+           @include lg{
+            width: 20px;
+            height: 33px;
+           }
        }
     }
     .searchbox__textbox{
@@ -21,11 +38,19 @@
         &:focus-visible{
             outline:0;
         }
+
+        @include lg{
+
+        }
     }
 
 
     @include md{
        grid-area:header;
+    }
+
+    @include lg{
+       
     }
 }
 

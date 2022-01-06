@@ -3,6 +3,7 @@ import PasswordSvg from '../public/icons/password.svg';
 import NoteSvg from '../public/icons/note.svg';
 import SecurityCheckSvg from '../public/icons/security-check.svg';
 import GeneratePasswordSvg from '../public/icons/generate-password.svg';
+import LogoSvg from '../public/icons/logo.svg';
 
 import AddPassword from '../components/AddPassword';
 
@@ -13,7 +14,13 @@ const MenuSidebar = () => {
             {/* addPassword */}
 
             <AddPassword/>
+            
 
+            <a className="logo" >
+                <div className="logo__imgcont">
+                    <LogoSvg/>
+                </div>        
+            </a>
 
             <ul className="menu__sidebar__ul">
                 <li className="menu__sidebar__li">
@@ -35,7 +42,7 @@ const MenuSidebar = () => {
                         <div className="menu__sidebar__imgcont">
                             <NoteSvg/>
                         </div>
-                        <p className="menu__sidebar__linktext">Passwords</p>
+                        <p className="menu__sidebar__linktext">Notes</p>
                         
                     </a>
                     </Link>
@@ -46,7 +53,7 @@ const MenuSidebar = () => {
                         <div className="menu__sidebar__imgcont">
                             <SecurityCheckSvg/>
                         </div>
-                        <p className="menu__sidebar__linktext">Passwords</p>
+                        <p className="menu__sidebar__linktext">Security Dash</p>
                         
                     </a>
                     </Link>
@@ -57,7 +64,7 @@ const MenuSidebar = () => {
                         <div className="menu__sidebar__imgcont">
                             <GeneratePasswordSvg/>
                         </div>
-                        <p className="menu__sidebar__linktext">Passwords</p>
+                        <p className="menu__sidebar__linktext">Generate Password</p>
                         
                     </a>
                     </Link>
