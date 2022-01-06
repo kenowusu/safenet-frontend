@@ -11,7 +11,13 @@
         display:flex;
         align-items: center;
         justify-content: space-between;
-     
+        
+
+         // media queries
+        @include lg{
+       
+            flex-direction: column;
+        }
         
     }
     
@@ -40,8 +46,14 @@
     .menu__sidebar__linktext{
         display:none;
     }
+    
 
-    @include md{
-        
+    // media queries
+    @include lg{
+        width:90px;
+        position:static;
+        grid-area:menusidebar;
+        flex-direction: column;
+        height:100vh;
     }
 }

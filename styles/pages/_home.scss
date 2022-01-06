@@ -11,4 +11,9 @@
         fill: $mountain-medow;
         
     }
+
+    // media queries
+    @include lg{
+        display: none;
+    }
 }

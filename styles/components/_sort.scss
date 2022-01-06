@@ -22,7 +22,7 @@
 
         }
 
-     grid-area: sort;
+     
 
     }
 
@@ -45,8 +45,9 @@
     }
     
 
-    @include md{
+    @include lg{
        
+        grid-area: sort;
     }
     
 }

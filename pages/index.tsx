@@ -12,7 +12,7 @@ import Password from '../components/Passoword';
 
 const Home: NextPage = () => {
   return (
-    <div className="page_container grid" >
+    <div className="page_container " >
       <Header/>
       <Sort/>
       <Password/>
