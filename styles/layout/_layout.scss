@@ -22,14 +22,23 @@ html,body{
     @include lg{
         padding:0;
         display: grid;
-        grid-template-columns: 90px 70%;
+        grid-template-columns: 90px auto;
         grid-template-rows: 40px 80px auto;
         column-gap: 15px;
         grid-template-areas:
              "menusidebar header"
              "menusidebar sort"
-             "menusidebar password_container"                 
+             "menusidebar password_container" ;
+        padding-right:20px;
+             
+             
 
+    }
+
+
+    @include xl{
+        grid-template-columns: 90px minmax(auto,1300px);
+        grid-template-rows: 40px 80px auto;
     }
  
  }
