@@ -2,7 +2,7 @@ import AddPasswordSvg from '../public/icons/add.svg';
 
 const AddPassword = () => {
     return ( 
-        <button class="addPasswordBtn">
+        <button className="addPasswordBtn">
             <AddPasswordSvg/>
         </button>
      );
