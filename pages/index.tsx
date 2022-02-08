@@ -5,6 +5,17 @@ import Link from 'next/link';
 import Logo from '../public/icons/logo.svg';
 
 
+//import reason svgs 
+import SecurityImage from '../public/icons/why/its-secure.svg';
+import ImportPasswordImage from '../public/icons/why/import.svg';
+import ExtensionImage from '../public/icons/why/extension-accessible.svg';
+import ShareImage from '../public/icons/why/share.svg';
+import FolderImage from '../public/icons/why/folder-category.svg';
+import NoteImage from '../public/icons/why/dark-web-monitoring-report.svg';
+
+
+
+
 const HomePage = ()=>{
 
 
@@ -50,6 +61,79 @@ const HomePage = ()=>{
 
       </div>
       {/* homepage intro ends */}
+
+
+      {/* why rottpass begins */}
+
+      <div className="why">
+        <h2 className="why__head">WHY ROTTPASS</h2>
+
+        <div className="why__reasoncont">
+
+
+          <div className="why__reason">
+            <div className="why__reason__icon"><SecurityImage/></div>
+            <h2 className="why__reason__head">SECURITY</h2>
+            <p className="why__reason__desc">
+            Passwords are hashed and stored with a complex AES algorithm 
+            that guarantees security. Generate strong passwords.
+            </p>
+          </div>
+
+          
+          <div className="why__reason">
+            <div className="why__reason__icon"><ImportPasswordImage/></div>
+            <h2 className="why__reason__head">IMPORT PASSWORD</h2>
+            <p className="why__reason__desc">
+            Passwords are hashed and stored with a complex AES algorithm
+             that guarantees security. Generate strong passwords.
+            </p>
+          </div>
+
+          
+          <div className="why__reason">
+            <div className="why__reason__icon"><ExtensionImage/></div>
+            <h2 className="why__reason__head">EXTENSION</h2>
+            <p className="why__reason__desc">
+            Passwords are hashed and stored with a complex AES algorithm that guarantees security.
+             Generate strong passwords.
+            </p>
+          </div>
+
+          
+          <div className="why__reason">
+            <div className="why__reason__icon"><ShareImage/></div>
+            <h2 className="why__reason__head">SHARE</h2>
+            <p className="why__reason__desc">
+            Passwords are hashed and stored with a complex AES algorithm that guarantees security. Generate strong passwords.
+            </p>
+          </div>
+
+          
+          <div className="why__reason">
+            <div className="why__reason__icon"><FolderImage/></div>
+            <h2 className="why__reason__head">EASY MANAGE</h2>
+            <p className="why__reason__desc">
+            Passwords are hashed and stored with a complex AES algorithm 
+            that guarantees security. Generate strong passwords.
+            </p>
+          </div>
+
+
+          
+          <div className="why__reason">
+            <div className="why__reason__icon"><NoteImage/></div>
+            <h2 className="why__reason__head">DARK WEB MONITORING</h2>
+            <p className="why__reason__desc">
+            Passwords are hashed and stored with a complex AES algorithm 
+            that guarantees security. Generate strong passwords.
+            </p>
+          </div>
+
+
+
+        </div>
+      </div>
 
 
 
