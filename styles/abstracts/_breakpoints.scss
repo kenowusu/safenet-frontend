@@ -18,7 +18,7 @@ $breakpoints : (
   }
 }
 @mixin sm{
-    @media(min-width: map.get($breakpoints,"ls")){
+    @media(min-width: map.get($breakpoints,"sm")){
         @content;
     }
   }

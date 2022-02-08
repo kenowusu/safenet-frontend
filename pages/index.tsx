@@ -34,11 +34,11 @@ const HomePage = ()=>{
 
 
 
-      {/* intro starts */}
+      {/*  homepage intro starts */}
       <div className="intro">
         <div className="intro__cont">
           <h1 className="intro__head">
-            YOUR PASSWORDS CAN BE YOUR REFLECTION, THEY CAN FOLLOW YOU ANYWHERE.
+            PASSWORD MANAGEMENT FROM ANYWHERE.
 
           </h1>
 
@@ -49,6 +49,7 @@ const HomePage = ()=>{
         </div>
 
       </div>
+      {/* homepage intro ends */}
 
 
 
