@@ -1,4 +1,4 @@
-import '../styles/main.scss';
+import '../styles/dist/dash.scss';
 
 
 import type { AppProps } from 'next/app'
