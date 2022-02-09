@@ -1,0 +1,43 @@
+
+
+.intro{
+    width:100%;
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 4rem 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    .intro__head{
+        font-family: work-sans, sans-serif;
+        font-size: 2.5rem;
+        line-height:2.5rem;
+        font-weight: 700;
+
+        @include md{
+            // width:700px;
+            font-size:4rem;
+            line-height: 4rem;
+            
+        }
+
+        @include lg{
+            width:935px;
+        }
+    }
+
+    .intro__desc{
+        font-family: Nunito;
+        // font-weight: 400;
+        padding: 1.5rem 1.5rem;
+
+        @include lg{
+            font-size:1.3rem;
+            width:935px;
+            margin:0;
+        }
+        
+    }
+}
