@@ -37,7 +37,7 @@ const HomePage = ()=>{
 
           <div className="navigationbar__linkcont">
             <Link href="/login"><a className="navigationbar__link navigationbar__login">Login</a></Link>
-            <Link href="/login"><a className="navigationbar__link navigationbar__signup">sign up</a></Link>
+            <Link href="/signup"><a className="navigationbar__link navigationbar__signup">sign up</a></Link>
           </div>
           
         </div>

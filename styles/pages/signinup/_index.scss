@@ -1,0 +1,82 @@
+
+.inup{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+     .inup__logo{
+        width:50px;
+        height:50px;
+        margin:50px 0 50px 0;
+
+        svg{
+            fill: $crail;
+        }
+    }
+
+    .inup__textlink{
+      width:300px;
+      margin-bottom:28px;
+      .inup__textlink__text{
+          font-size: .8rem;
+          display: inline-block;
+          margin-right:5px;
+      }
+
+      .inup__textlink__link{
+          color: $crail;
+          font-size:.8rem;
+          font-weight: bold;
+          display: inline-block;
+          width:80px;
+          height:20px;
+      }
+    }
+
+
+    .inup__itemcont{
+        width:300px;
+
+    }
+
+    .inup__item{
+        display: flex;
+        flex-direction: column;
+        width:100%;
+
+        .inup__item__label{
+            font-size: .8rem;
+            font-weight: bold;
+        }
+    }
+    .inup__item__textbox{
+        background-color:#eee;
+        border-radius: 75px;
+        padding:6px 10px;
+        width:100%;
+
+        &:first-of-type{
+            margin-bottom: 20px;
+        }
+
+        &:focus{
+            outline:0;
+        }
+    }
+
+    .inup__submit__textbox{
+        width:150px;
+        background-color: #1B8C37;
+        color:#fff;
+        font-size:.9rem;
+        text-align: center;
+        font-weight: bold;
+        cursor:pointer;
+    }
+
+  
+}
+
+
