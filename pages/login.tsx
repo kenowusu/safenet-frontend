@@ -5,9 +5,9 @@ const LoginPage = ()=>{
 
     return(
         <form className="inup">
-            <div className="inup__logo">
-                <LogoImage/>
-            </div>
+            <Link href="/">
+               <a href=""><div className="inup__logo"><LogoImage/></div></a>
+            </Link>
 
             <div className="inup__textlink">
                 <span className="inup__textlink__text">Don't have an account?</span>
