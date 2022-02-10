@@ -10,9 +10,11 @@ const LoginPage = ()=>{
             </Link>
 
             <div className="inup__textlink">
-                <span className="inup__textlink__text">Don't have an account?</span>
+                <span className="inup__textlink__text">{"Don't have an account?"}</span>
                 <Link href="/signup"><a className="inup__textlink__link">Sign Up</a></Link>
             </div>
+
+            <span className="inup__validationError"></span>
 
             <div className="inup__itemcont">
                 <div className="inup__item">
