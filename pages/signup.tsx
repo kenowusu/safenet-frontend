@@ -3,12 +3,45 @@ import Link from 'next/link';
 import { userInfo } from 'os';
 import LogoImage from '../public/icons/logo.svg';
 import {userVal} from '../validations/userValidation';
-import { json } from 'stream/consumers';
+import Cookies from 'universal-cookie';
+import cookie from 'cookie';
 
 
 
-export const getServerSideProps = (context)=>{
+
+export const getServerSideProps = async(context)=>{
     const API = process.env.API;
+    // const token = context.req.cookies;
+
+    function parseCookies(reqObj){
+        return cookie.parse(reqObj ? reqObj.headers.cookie || "" : document.cookie);
+    }
+
+    const cookies = parseCookies(context.req);
+    console.log(cookies)
+
+    const api = `${API}/api/users/isLoggedIn`;
+    
+    const req = await fetch(api,{
+        method:"GET",
+        credentials:'include',
+        headers:{
+            "Cookie":cookies
+        }
+    })
+
+    if(req.status == 200){
+        const response = await req.json();
+        const isAuthenticated = response.isAuthenticated;
+        if(isAuthenticated){
+            return{
+                redirect:{
+                    destination:"/dashboard"
+                }
+            }
+        }
+    }
+
 
     return{
         props:{
@@ -25,11 +58,12 @@ export const getServerSideProps = (context)=>{
 
 
 const SignupPage = (props)=>{
-
+    
     //set states
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [counter,setCounter] = useState(0);
+    const [token,setToken] = useState('');
     const [valError,setValError] = useState({
                                             validationError:"",
                                             style:{display:"none"}                                           
@@ -51,9 +85,9 @@ const SignupPage = (props)=>{
             }
             setCounter(counter+1);
           }
-    },[email,password])
+    },[email,password]);
 
-    
+
            
     
     //register user
@@ -72,7 +106,7 @@ const SignupPage = (props)=>{
         
         let reguser =  await fetch(api,{
              method:"POST",
-            // credentials:'include',
+            credentials:'include',
              body:body,
              headers:{'Content-Type':"application/json"}
         })
@@ -87,7 +121,12 @@ const SignupPage = (props)=>{
 
         }else if(reguser.status == 200){
             let response = await reguser.json();
-            console.log(response)
+            const token = response.token;
+            const cookies = new Cookies();
+          
+            const setcookie = await cookies.set('tk',token);
+            window.location.href = "/dashboard";
+            
         }
        
     }
