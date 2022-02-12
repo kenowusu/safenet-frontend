@@ -4,43 +4,26 @@ import { userInfo } from 'os';
 import LogoImage from '../public/icons/logo.svg';
 import {userVal} from '../validations/userValidation';
 import Cookies from 'universal-cookie';
-import cookie from 'cookie';
+
+
+import isLoggedIn from '../lib/user/isLoggedIn';
 
 
 
 
 export const getServerSideProps = async(context)=>{
+    
     const API = process.env.API;
 
-    //get cookie and parse
-    const  reqCookie = (context.req.headers.cookie)?context.req.headers.cookie : "";
-    const  parsedCookie = cookie.parse(reqCookie);
+     const isloggedin = await isLoggedIn(API,context);
 
-       
-    //check if user is authenticated from server with token(cookie)
-    const api = `${API}/api/users/isLoggedIn`;
-    const reqOptions = {
-        method:"POST",
-        credentials:'include',
-        headers:{
-            cookie:reqCookie
-        }
-    }
-
-    const req = await fetch(api,reqOptions);
-
-    if(req.status == 200){
-        const response = await req.json();
-        const isAuthenticated = response.isAuthenticated;
-        if(isAuthenticated){
-            return{
-                redirect:{
-                    destination:"/dashboard"
-                }
+     if(isloggedin){
+        return{
+            redirect:{
+                destination:"/dashboard"
             }
         }
-    }
-
+     }
 
     return{
         props:{
