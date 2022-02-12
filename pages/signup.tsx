@@ -11,24 +11,23 @@ import cookie from 'cookie';
 
 export const getServerSideProps = async(context)=>{
     const API = process.env.API;
-    // const token = context.req.cookies;
 
-    function parseCookies(reqObj){
-        return cookie.parse(reqObj ? reqObj.headers.cookie || "" : document.cookie);
-    }
+    //get cookie and parse
+    const  reqCookie = (context.req.headers.cookie)?context.req.headers.cookie : "";
+    const  parsedCookie = cookie.parse(reqCookie);
 
-    const cookies = parseCookies(context.req);
-    console.log(cookies)
-
+       
+    //check if user is authenticated from server with token(cookie)
     const api = `${API}/api/users/isLoggedIn`;
-    
-    const req = await fetch(api,{
-        method:"GET",
+    const reqOptions = {
+        method:"POST",
         credentials:'include',
         headers:{
-            "Cookie":cookies
+            cookie:reqCookie
         }
-    })
+    }
+
+    const req = await fetch(api,reqOptions);
 
     if(req.status == 200){
         const response = await req.json();
