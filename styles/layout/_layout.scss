@@ -4,6 +4,11 @@ html,body{
     margin-bottom:30px;
     font-family: Nunito,sans-serif;
     position:relative;
+
+
+    @include lg{
+        background-color:#f5f5f5;
+    }
  }
  
      
@@ -22,7 +27,7 @@ html,body{
         padding:0;
         display: grid;
         grid-template-columns: 90px auto;
-        grid-template-rows: 40px 80px auto;
+        grid-template-rows: 100px 80px auto;
         column-gap: 15px;
         grid-template-areas:
              "menusidebar header"
@@ -37,7 +42,9 @@ html,body{
 
     @include xl{
         grid-template-columns: 90px minmax(auto,1300px);
-        grid-template-rows: 40px 80px auto;
+        grid-template-rows: 
+         100px 80px auto;
+      
     }
  
  }

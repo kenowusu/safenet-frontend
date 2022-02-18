@@ -2,52 +2,14 @@
     padding:0 20px 20px 20px;
     background-color: #fff;
     box-shadow: 0 4px 4px #00000026;
-
-    & .item_sort__ul{
-        display: flex;
-        justify-content: space-between;
-
-        @include lg{
-       
-            grid-area: sort;
-            max-width:510px;
-        }
-
+    
+    //============== item_sort at lg 
+    @include lg{
+       height:43px;
+       padding:0;
     }
 
-    & .item_sort__li{
-       
-       display: flex;
-       justify-content: center;
-
-        .item_sort__btn{
-            width:100%;
-            font-size:0.8rem;
-            font-weight:bold;
-            padding:5px 0 5px 0;
-            cursor:pointer;
-            display: flex;
-            align-items: center;
-
-
-            @include lg{
-                width:auto;
-                font-size:1rem;
-                padding:3px 6px;
-                
-                
-            }
-
-        }
-
-        @include lg{
-            min-width:150px;
-            
-        }
-
-     
-
-    }
+   
 
     
 
@@ -86,4 +48,53 @@
 
     
     
+}
+
+
+
+//========================item sort ul====================//
+.item_sort__ul{
+    display: flex;
+    justify-content: space-between;
+
+    @include lg{
+   
+        grid-area: sort;
+        max-width:510px;
+    }
+
+}
+//=======================item sort li==========================//
+.item_sort__li{
+   
+   display: flex;
+   justify-content: center;
+
+    .item_sort__btn{
+        width:100%;
+        font-size:0.8rem;
+        font-weight:bold;
+        padding:5px 0 5px 0;
+        cursor:pointer;
+        display: flex;
+        align-items: center;
+
+
+        @include lg{
+            width:auto;
+            font-size:1rem;
+            padding:3px 6px;
+            
+            
+        }
+
+    }
+
+    @include lg{
+        min-width:150px;
+        
+    }
+
+ 
+
 }

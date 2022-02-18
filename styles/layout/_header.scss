@@ -1,60 +1,76 @@
-
+//===========================header begins ==================
 .header{
     padding:20px 20px 20px 20px;
     background-color: #fff;
-     
-    @include lg{
-        margin-top: 20px;
-    }
-    .searchbox{
-        background-color:#e3e3e3;
+    height:80px;
+    
 
-
-        @include lg{
-            height: 40px;
-        }
-    }
-    .searchbox__imgcont{
-       padding:5px;
-       width:20px;
-       font-size:0.8rem;
-
-        @include lg{
-            width:auto;
-        }
-
-       & svg{
-           width:10px;
-           height:22px;
-
-           @include lg{
-            width: 20px;
-            height: 33px;
-           }
-       }
-    }
-    .searchbox__textbox{
-        background-color:#e3e3e3;
-        font-size:1rem;
-        margin:0;
-        &:focus-visible{
-            outline:0;
-        }
-
-        @include lg{
-
-        }
-    }
-
-
+    //==================== .header at md 
     @include md{
-       grid-area:header;
+        padding:20px 20px 0 20px;
+        grid-area:header;
     }
 
+    //======================.header at lg
     @include lg{
-       
+        padding: 20px 0 0 0;
+        background-color: transparent;
+      
+      
     }
 }
+//header ends ===========================================
 
 
 
+
+
+
+    //===============search box================
+    .searchbox{
+        
+        background-color:#e3e3e3;
+        height:40px;
+
+
+        @include lg{
+
+        }
+    }
+
+            //=================searchbox__imgcont
+            .searchbox__imgcont{
+            padding:5px;
+            width:20px;
+            font-size:0.8rem;
+            background-color:#e3e3e3;
+
+                @include lg{
+                    width:auto;
+                    background-color: #fff;
+                }
+
+            & svg{
+                width:10px;
+                height:22px;
+
+                @include lg{
+                    width: 20px;
+                    height: 33px;
+                }
+            }
+            }
+            //======================searchbox__textbox
+            .searchbox__textbox{
+                background-color:#e3e3e3;
+                font-size:1rem;
+                margin:0;
+                &:focus-visible{
+                    outline:0;
+                }
+
+                @include lg{
+                    border:1px solid grey;
+                    background-color: #fff;
+                }
+            }
