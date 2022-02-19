@@ -9,6 +9,10 @@ import Cookies from 'universal-cookie';
 import isLoggedIn from '../lib/user/isLoggedIn';
 
 
+//===========import components=========//
+import Layout from '../components/home/layout';
+
+
 
 
 export const getServerSideProps = async(context)=>{
@@ -151,4 +155,15 @@ const SignupPage = (props)=>{
     )
 }
 
+
+
+//define index Layout 
+SignupPage.getLayout = function getLayout(page){
+    return (
+         <Layout>
+           {page}
+         </Layout>
+    )
+  }
+  
 export default SignupPage;

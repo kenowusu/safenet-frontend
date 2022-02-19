@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import SearchSvg from '../public/icons/search.svg';
+import SearchSvg from '/public/icons/search.svg';
 
 const Header = () => {
     return ( 

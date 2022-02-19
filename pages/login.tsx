@@ -6,7 +6,8 @@ import {userVal} from '../validations/userValidation';
 import Cookies from 'universal-cookie';
 
 
-
+//===========import components=========//
+import Layout from '../components/home/layout';
 
 export const getServerSideProps = async(context)=>{
     
@@ -150,4 +151,15 @@ const loginUser = async(e)=>{
     )
 }
 
+
+
+//define LoginPage Layout 
+LoginPage.getLayout = function getLayout(page){
+    return (
+         <Layout>
+           {page}
+         </Layout>
+    )
+  }
+  
 export default LoginPage;

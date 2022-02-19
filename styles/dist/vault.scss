@@ -1,0 +1,44 @@
+
+
+ //import abstracts 
+ @import '../abstracts/index';
+
+
+
+ //import base
+@import '../base/index';
+
+
+
+
+//import layout 
+@import  '../layout/vault/index';
+
+
+//import scss-components
+@import '../components/vault/index';
+
+      
+
+// import vendor
+@import '../vendor/index';
+
+
+
+
+
+
+
+
+/*  
+------in the future I plan to make homepage.scss stand on its own 
+------ I'm currently limited because of nextjs's global style style of import 
+*/
+// import homepag
+@import '../dist/homepage.scss';
+
+
+
+
+
+

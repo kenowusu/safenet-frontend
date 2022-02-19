@@ -1,11 +1,16 @@
 import Link from 'next/link';
-import PasswordSvg from '../public/icons/password.svg';
-import NoteSvg from '../public/icons/note.svg';
-import SecurityCheckSvg from '../public/icons/security-check.svg';
-import GeneratePasswordSvg from '../public/icons/generate-password.svg';
-import LogoSvg from '../public/icons/logo.svg';
 
-import AddPassword from '../components/AddPassword';
+
+//============svg images=====================//
+import PasswordSvg from '../../public/icons/password.svg';
+import NoteSvg from '../../public/icons/note.svg';
+import SecurityCheckSvg from '../../public/icons/security-check.svg';
+import GeneratePasswordSvg from '../../public/icons/generate-password.svg';
+import LogoSvg from '../../public/icons/logo.svg';
+
+//===============components========//
+
+import AddPassword from './AddPassword';
 
 const MenuSidebar = () => {
     return ( 

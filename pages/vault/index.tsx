@@ -5,43 +5,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 
-// export const getServerSideProps = async(context)=>{
-//   const API = process.env.API;
-//   const  authenticated = await fetch(`${API}/api/passwords/create`,{
-//     method:'POST',
-//     credentials:'include',
-//     headers:{'Content-Type':'application/json'}
-//   });
-//   const  isAuthenticated = await authenticated.json().isAuthenticated;
-  
 
-  
- 
+//===============components ============//
 
-
-//   if(isAuthenticated){
-//     return{
-//       redirect:{
-//         destination:'/login',
-//         permanent:false
-//       }
-//     }
-//   }
-
-  
-
-
-
-//   return{
-//     props:{}
-//   }
-// }
-
-
-import Header from '../../components/Header';
-import MenuSidebar from '../../components/MenuSidebar';
-import Sort from '../../components/Sort';
-import Password from '../../components/Passoword';
+import Header from '../../components/vault/Header';
+import MenuSidebar from '../../components/vault/MenuSidebar';
+import Sort from '../../components/vault/Sort';
+import Password from '../../components/vault/Password';
 
 const PasswordPage: NextPage = () => {
   return (

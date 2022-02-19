@@ -1,4 +1,8 @@
-import AddPasswordSvg from '../public/icons/add.svg';
+
+
+
+//=======================components =================//
+import AddPasswordSvg from '../../public/icons/add.svg';
 
 const AddPassword = () => {
     return ( 
