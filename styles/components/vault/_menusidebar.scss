@@ -1,3 +1,6 @@
+
+
+//===========================.menu__sidebar====================///
 .menu__sidebar{
     position:absolute;
     left:0;
@@ -26,78 +29,10 @@
         }
     }
    
-    .menu__sidebar__ul{
-        padding:10px 0 10px 0;
-        width:100%;
-        display:flex;
-        align-items: center;
-        justify-content: space-between;
-        
-        
-        
-        
-
-         // media queries
-        @include lg{
-            
-            flex-direction: column;
-            margin-top:150px;
-        }
-        
-    }
-
-    .menu__sidebar__li{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom:20px;
-    }
     
-    .menu__sidebar__link{
-        
-        width:50px;
-        padding-top:10px;
-        display:flex;
-        justify-content: center;
-        
-        
-        @include lg{
-            flex-direction: column;
-            align-items: center;
-        }
 
-        
 
-        svg{
-            fill : #BFBFBF;
-        }
 
-        &.active{
-         svg{
-             fill:$crail;
-         }
-        }
-    }
-
-    .menu__sidebar__imgcont{
-        width:20px;
-
-        @include lg{
-            margin-bottom:7px;
-        }
-    }
-
-    .menu__sidebar__linktext{
-        display:none;
-
-        @include lg{
-         display:inline-block;
-         font-size:.8rem;
-         text-align: center;
-         
-        }
-    }
-    
 
     // media queries
     @include lg{
@@ -110,5 +45,79 @@
         flex-direction: column;
    
         
+    }
+}
+
+
+
+//=================menu__sidebar__ul======================
+.menu__sidebar__ul{
+    padding:10px 0 10px 0;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+     // media queries
+    @include lg{
+        
+        flex-direction: column;
+        margin-top:150px;
+    }
+    
+}
+
+
+//===========================menu__sidebar__li======================
+.menu__sidebar__li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:20px;
+}
+
+
+//==========================menu__sidebar__link====================
+.menu__sidebar__link{
+    width:50px;
+    padding-top:10px;
+    display:flex;
+    justify-content: center;
+    
+    //==@lg====//
+    @include lg{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    svg{
+        fill : #BFBFBF;
+    }
+
+    &.active{
+     svg{
+         fill:$crail;
+     }
+    }
+}
+
+
+//=================menu__sidebar__imgcont=============//
+.menu__sidebar__imgcont{
+    width:20px;
+
+    @include lg{
+        margin-bottom:7px;
+    }
+}
+//=================menu__sidebar__linktext==============//
+.menu__sidebar__linktext{
+    display:none;
+
+    @include lg{
+     display:inline-block;
+     font-size:.8rem;
+     text-align: center;
+     
     }
 }

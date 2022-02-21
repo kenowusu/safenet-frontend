@@ -1,13 +1,31 @@
 import Image from 'next/image';
-import SearchSvg from '/public/icons/search.svg';
+
+
+//==============import svg images ==============================//
+import SearchSvg from '/public/icons/options/options-search.svg';
+import ImportSvg from '/public/icons/options/options-import.svg';
+import UserSvg from '/public/icons/options/options-user.svg';
 
 const Header = () => {
     return ( 
         <div className="header">
-            <div className="searchbox  flex  w-full rounded-md">
-                <div className="searchbox__imgcont flex w-7 p-0.5"><SearchSvg/></div>
-                <input type="text"  className="searchbox__textbox w-full h-full rounded-md p-2"  placeholder="search my vault"/>
-            </div>
+
+             <div className="header-container">
+
+                 <div className="header-searchbox">
+                     <input type="text" className="header-searchbox-textbox" name="cheese" />
+                     <label className="header-searchbox-imgc" for="cheese"><SearchSvg/></label>
+                 </div>{/* searchbox container*/}
+
+                 <div className="header-options">
+                     <div className="header-options-container">
+                         <button className="header-options-importc flex justify-center items-center"><ImportSvg/></button>
+                         <button className="header-options-userc flex justify-center items-center"><UserSvg/></button>
+                     </div>
+                 </div>          
+                 
+            </div> {/* .header  container*/}
+           
         </div>
      );
 }
