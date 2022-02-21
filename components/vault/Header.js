@@ -13,8 +13,8 @@ const Header = () => {
              <div className="header-container">
 
                  <div className="header-searchbox">
-                     <input type="text" className="header-searchbox-textbox" name="cheese" />
-                     <label className="header-searchbox-imgc" for="cheese"><SearchSvg/></label>
+                     <input type="text" className="header-searchbox-textbox" name="search" />
+                     <button className="header-searchbox-imgc flex justify-center items-center" for="search" ><SearchSvg/></button>
                  </div>{/* searchbox container*/}
 
                  <div className="header-options">
