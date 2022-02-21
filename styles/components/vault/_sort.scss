@@ -1,0 +1,45 @@
+.sort{
+  
+}
+
+.sort-container{
+    width:100%;
+    padding:15px 15px 0 10px;
+
+    @include lg{
+        padding:15px 25px 0 25px;
+    }
+}
+
+.sort-text{
+    margin-right:auto;
+    color:$color-crail;
+    text-transform: uppercase;
+    font-weight:bold;
+    font-size:.9rem;
+}
+
+.sort-option{
+
+}
+
+.sort-option-imgc{
+ 
+  svg{
+      margin-right:5px;
+      width:30px;
+      fill:$color-crail;
+  }
+  path{
+      stroke-width:8;
+      stroke:$color-crail;
+  }
+}
+
+
+.sort-option-text{
+text-transform: uppercase;
+  color:$color-crail;
+  font-weight: bold;
+  font-size:.9rem;
+}
