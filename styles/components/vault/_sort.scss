@@ -1,7 +1,9 @@
+//=============sort =============================//
 .sort{
   
 }
 
+//=============sort-container =============================//
 .sort-container{
     width:100%;
     padding:15px 15px 0 10px;
@@ -10,7 +12,7 @@
         padding:15px 25px 0 25px;
     }
 }
-
+//=============sort-text =============================//
 .sort-text{
     margin-right:auto;
     color:$color-crail;
@@ -19,10 +21,12 @@
     font-size:.9rem;
 }
 
+//=============sort-option=============================//
 .sort-option{
 
 }
 
+//=============sort-option-imgc =============================//
 .sort-option-imgc{
  
   svg{
@@ -36,7 +40,7 @@
   }
 }
 
-
+//=============sort-option-text =============================//
 .sort-option-text{
 text-transform: uppercase;
   color:$color-crail;

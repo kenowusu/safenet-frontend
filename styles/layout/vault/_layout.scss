@@ -20,7 +20,7 @@ html,body{
         padding:0;
         display: grid;
         grid-template-columns: 90px auto;
-        grid-template-rows: 60px 80px auto;
+        grid-template-rows: 60px 40px auto;
         grid-template-areas:
              "menusidebar header"
              "menusidebar sort"
