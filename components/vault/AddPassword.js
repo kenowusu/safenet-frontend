@@ -2,11 +2,11 @@
 
 
 //=======================components =================//
-import AddPasswordSvg from '../../public/icons/add.svg';
+import AddPasswordSvg from '../../public/icons/options/options-add.svg';
 
 const AddPassword = () => {
     return ( 
-        <button className="addPasswordBtn">
+        <button className="addPasswordBtn flex justify-center items-center ">
             <AddPasswordSvg/>
         </button>
      );

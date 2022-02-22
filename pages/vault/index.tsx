@@ -12,6 +12,7 @@ import Header from '../../components/vault/Header';
 import MenuSidebar from '../../components/vault/MenuSidebar';
 import Sort from '../../components/vault/Sort';
 import Password from '../../components/vault/Password';
+import AddPassword from '../../components/vault/addPassword';
 
 const PasswordPage: NextPage = () => {
   return (
@@ -19,7 +20,9 @@ const PasswordPage: NextPage = () => {
       <Header/>
       <Sort/>
       <Password/>
+      <AddPassword/>
       <MenuSidebar/>
+      
     </div>
   )
 }

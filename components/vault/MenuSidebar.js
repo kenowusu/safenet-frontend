@@ -10,17 +10,10 @@ import LogoSvg from '../../public/icons/logo.svg';
 
 //===============components========//
 
-import AddPassword from './AddPassword';
-
 const MenuSidebar = () => {
     return ( 
         <div className="menu__sidebar">
-
-            {/* addPassword */}
-
-            <AddPassword/>
-            
-
+    
             <a className="logo" >
                 <div className="logo__imgcont">
                     <LogoSvg/>
