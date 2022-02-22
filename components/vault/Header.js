@@ -14,7 +14,7 @@ const Header = () => {
 
                  <div className="header-searchbox">
                      <input type="text" className="header-searchbox-textbox" name="search" />
-                     <button className="header-searchbox-imgc flex justify-center items-center" for="search" ><SearchSvg/></button>
+                     <label className="header-searchbox-imgc flex justify-center items-center" htmlFor="search" ><SearchSvg/></label>
                  </div>{/* searchbox container*/}
 
                  <div className="header-options">

@@ -18,7 +18,7 @@ export const getServerSideProps = async(context)=>{
      if(isloggedin){
         return{
             redirect:{
-                destination:"/dashboard"
+                destination:"/vault"
             }
         }
      }
@@ -108,7 +108,7 @@ const loginUser = async(e)=>{
           const cookies = new Cookies();
         
           const setcookie = await cookies.set('tk',token);
-          window.location.href = "/dashboard";
+          window.location.href = "/vault";
           
       }
      
