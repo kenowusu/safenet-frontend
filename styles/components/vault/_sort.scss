@@ -1,6 +1,8 @@
 //=============sort =============================//
 .sort{
   
+
+    
 }
 
 //=============sort-container =============================//
@@ -28,6 +30,10 @@
 
 //=============sort-option-imgc =============================//
 .sort-option-imgc{
+    z-index:1;
+    &.show .dp{
+        display: inline-block;
+    } 
  
   svg{
       margin-right:5px;

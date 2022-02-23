@@ -6,7 +6,7 @@ import EllipseSvg from '../../public/icons/options-vertical.svg';
 import PasswordShowSvg from '../../public/icons/eye-reveal.svg';
 
 //=========import components ====================//
-import SortDropDown from '../dropdown/sortDropdown';
+// import SortDropDown from '../dropdown/sortDropdown';
 
 
 
@@ -36,7 +36,7 @@ const Password = () => {
                         <td className="password-item-td-folder">email</td>
                         <td className="password-item-td-options">
                          <span>...</span>
-                         <SortDropDown/>
+                      
                         </td>
                     </tr>
 
@@ -80,54 +80,7 @@ const Password = () => {
                     </tr>
 
 
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Cybrary</span>
-                            <span className='password-item-td-username'>christy4153</span>
-                        </td>
-                        <td className="password-item-td-folder">Google</td>
-                        <td className="password-item-td-options">...</td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Cybrary</span>
-                            <span className='password-item-td-username'>christy4153</span>
-                        </td>
-                        <td className="password-item-td-folder">Google</td>
-                        <td className="password-item-td-options">...</td>
-                    </tr>
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Cybrary</span>
-                            <span className='password-item-td-username'>christy4153</span>
-                        </td>
-                        <td className="password-item-td-folder">Google</td>
-                        <td className="password-item-td-options">...</td>
-                    </tr>
-
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Cybrary</span>
-                            <span className='password-item-td-username'>christy4153</span>
-                        </td>
-                        <td className="password-item-td-folder">Google</td>
-                        <td className="password-item-td-options">...</td>
-                    </tr>
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Cybrary</span>
-                            <span className='password-item-td-username'>christy4153</span>
-                        </td>
-                        <td className="password-item-td-folder">Google</td>
-                        <td className="password-item-td-options">...</td>
-                    </tr>
-
+                   
 
 
                 </table>

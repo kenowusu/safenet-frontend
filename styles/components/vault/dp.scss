@@ -4,12 +4,15 @@
     display: none;
     position:absolute;
     z-index:1;
+    top:25px;
+    right:0;
 }
 
 //===================.dp-container==============================//
 .dp-container{
     background-color: #fff;
     border:1px solid #eee;
+    min-width: 150px;
 }
 //===================.dp-head==============================//
 .dp-head{

@@ -10,7 +10,7 @@ import RecentSvgImage from '../../public/icons/options/options-recent.svg';
 const SortDropDown = () => {
    
     return ( 
-        <div class="dp">
+        <div className="dp absolute ">
             <div className="dp-container">
                 
                 <div className="dp-head"><span>Sort By</span></div>
