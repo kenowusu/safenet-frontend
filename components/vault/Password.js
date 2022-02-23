@@ -35,7 +35,7 @@ const Password = () => {
                         </td>
                         <td className="password-item-td-folder">email</td>
                         <td className="password-item-td-options">
-                         <span>...</span>
+                         <button className='password-item-td-options-ellipse'>...</button>
                       
                         </td>
                     </tr>
@@ -43,42 +43,46 @@ const Password = () => {
 
                     <tr className="password-item-tr">
                         <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Amazon</span>
+                            <span className="password-item-td-name-name">AWS AMAZON</span>
                             <span className='password-item-td-username'>kennethowusu@gmail.com</span>
                         </td>
-                        <td className="password-item-td-folder">courses</td>
-                        <td className="password-item-td-options">...</td>
+                        <td className="password-item-td-folder">email</td>
+                        <td className="password-item-td-options">
+                         <button className='password-item-td-options-ellipse'>...</button>
+                      
+                        </td>
                     </tr>
+
 
 
                     <tr className="password-item-tr">
                         <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Cybrary</span>
-                            <span className='password-item-td-username'>christy4153</span>
+                            <span className="password-item-td-name-name">AWS AMAZON</span>
+                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
                         </td>
-                        <td className="password-item-td-folder">Google</td>
-                        <td className="password-item-td-options">...</td>
+                        <td className="password-item-td-folder">email</td>
+                        <td className="password-item-td-options">
+                         <button className='password-item-td-options-ellipse'>...</button>
+                      
+                        </td>
                     </tr>
 
                     <tr className="password-item-tr">
                         <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Cybrary</span>
-                            <span className='password-item-td-username'>christy4153</span>
+                            <span className="password-item-td-name-name">AWS AMAZON</span>
+                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
                         </td>
-                        <td className="password-item-td-folder">Google</td>
-                        <td className="password-item-td-options">...</td>
+                        <td className="password-item-td-folder">email</td>
+                        <td className="password-item-td-options">
+                         <button className='password-item-td-options-ellipse'>...</button>
+                      
+                        </td>
                     </tr>
 
 
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">Cybrary</span>
-                            <span className='password-item-td-username'>christy4153</span>
-                        </td>
-                        <td className="password-item-td-folder">Google</td>
-                        <td className="password-item-td-options">...</td>
-                    </tr>
 
+
+                  
 
                    
 
