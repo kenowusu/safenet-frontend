@@ -1,0 +1,63 @@
+
+//===================.dp==============================//
+.dp{
+    display: none;
+    position:absolute;
+    z-index:1;
+}
+
+//===================.dp-container==============================//
+.dp-container{
+    background-color: #fff;
+    border:1px solid #eee;
+}
+//===================.dp-head==============================//
+.dp-head{
+    padding: 25px 10px;
+    padding-left:33px;
+    font-size:.9rem;
+    font-weight:bold;
+}
+
+//===================.dp-option-item==============================//
+.dp-option-item{
+  
+    border-top:1px solid #eee;
+    padding:10px 15px 10px 15px;
+    font-weight:300;
+    font-size:.9rem;
+    display: flex;
+
+    &:hover{
+        background-color: #eee;
+    }
+
+}
+
+//===================.dp-option-item-icon==============================//
+.dp-option-item-icon{
+    width:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:5px;
+    
+    &.icon-folder{
+      svg{
+        width:15px;
+        height:12.13px;
+      }
+    }
+    &.icon-name-tag{
+        svg{
+            width:9.5px;
+            height: 15.11px;
+        }
+    }
+    &.icon-recent{
+        svg{
+          width:14px;
+          height:14px;
+        }
+    }
+}
