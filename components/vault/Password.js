@@ -35,8 +35,11 @@ const Password = () => {
                         </td>
                         <td className="password-item-td-folder">email</td>
                         <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse'>...</button>
-                         {/* <PasswordOptDropdown/> */}
+                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
+                             ...
+                             <PasswordOptDropdown/>
+                        </button>
+                        
                       
                         </td>
                     </tr>
