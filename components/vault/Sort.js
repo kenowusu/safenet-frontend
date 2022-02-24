@@ -14,6 +14,8 @@ const Sort = () => {
          sortButton.addEventListener('click',(event)=>{
             sortButton.classList.toggle('show');
          })
+
+         
     },[])
     return ( 
         <div className="sort">
@@ -23,7 +25,7 @@ const Sort = () => {
               <p className="sort-text">Passwords</p>
 
               <div className="sort-option flex justify-end items-center">
-                  <button className="sort-option-imgc flex justify-center items-center relative">
+                  <button className="sort-option-imgc flex justify-center items-center relative show">
                       <SortSvg/>
                       <p className="sort-option-text">Sort</p>
                       <SortDropDown/>

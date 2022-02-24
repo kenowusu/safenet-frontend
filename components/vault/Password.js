@@ -6,7 +6,7 @@ import EllipseSvg from '../../public/icons/options-vertical.svg';
 import PasswordShowSvg from '../../public/icons/eye-reveal.svg';
 
 //=========import components ====================//
-// import SortDropDown from '../dropdown/sortDropdown';
+import PasswordOptDropdown from '../dropdown/passwordOptDropdown';
 
 
 
@@ -36,50 +36,13 @@ const Password = () => {
                         <td className="password-item-td-folder">email</td>
                         <td className="password-item-td-options">
                          <button className='password-item-td-options-ellipse'>...</button>
+                         {/* <PasswordOptDropdown/> */}
                       
                         </td>
                     </tr>
 
 
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse'>...</button>
-                      
-                        </td>
-                    </tr>
-
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse'>...</button>
-                      
-                        </td>
-                    </tr>
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse'>...</button>
-                      
-                        </td>
-                    </tr>
-
-
+                    
 
 
                   

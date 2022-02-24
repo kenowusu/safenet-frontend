@@ -10,19 +10,19 @@ import RecentSvgImage from '../../public/icons/options/options-recent.svg';
 const SortDropDown = () => {
    
     return ( 
-        <div className="dp absolute ">
-            <div className="dp-container">
+        <div className="dropdown dropdown__show absolute ">
+            <div className="dropdown-container">
                 
-                <div className="dp-head"><span>Sort By</span></div>
+                <div className="dropdown-title"><span>Sort By</span></div>
 
-                <div className="dp-option">
-                    <div className="dp-option-item"><span className="dp-option-item-icon icon-folder"><FolderSvgImage/></span><span className="dp-option-item-text">Folder (a-z)</span></div>
-                    <div className="dp-option-item"><span className="dp-option-item-icon icon-folder"><FolderSvgImage/></span><span className="dp-option-item-text">Folder(z-a)</span></div>
-                    <div className="dp-option-item"><span className="dp-option-item-icon icon-name-tag"><NameSvgImage/></span><span className="dp-option-item-text">Name(a-z)</span></div>
-                    <div className="dp-option-item"><span className="dp-option-item-icon icon-name-tag"><NameSvgImage/></span><span className="dp-option-item-text">Name(z-a)</span></div>
-                    <div className="dp-option-item"><span className="dp-option-item-icon icon-recent"><RecentSvgImage/></span><span className="dp-option-item-text">Most Recent</span></div>
+                <div className="dropdown-option">
+                    <div className="dropdown-option-item"><span className="dropdown-option-item-icon icon-folder"><FolderSvgImage/></span><span className="dropdown-option-item-text">Folder (a-z)</span></div>
+                    <div className="dropdown-option-item"><span className="dropdown-option-item-icon icon-folder"><FolderSvgImage/></span><span className="dropdown-option-item-text">Folder(z-a)</span></div>
+                    <div className="dropdown-option-item dropdown-option-item__hide"><span className="dropdown-option-item-icon icon-name-tag"><NameSvgImage/></span><span className="dropdown-option-item-text">Name(a-z)</span></div>
+                    <div className="dropdown-option-item dropdown-option-item__show"><span className="dropdown-option-item-icon icon-name-tag"><NameSvgImage/></span><span className="dropdown-option-item-text">Name(z-a)</span></div>
+                    <div className="dropdown-option-item"><span className="dropdown-option-item-icon icon-recent"><RecentSvgImage/></span><span className="dropdown-option-item-text">Most Recent</span></div>
 
-                </div>{/*dp-option */}
+                </div>{/*dropdown-option */}
             
             </div>
             
