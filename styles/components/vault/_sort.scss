@@ -2,7 +2,7 @@
 .sort{
   
 
-    
+
 }
 
 //=============sort-container =============================//
@@ -35,15 +35,14 @@
         display: inline-block;
     } 
  
-  svg{
-      margin-right:5px;
-      width:30px;
-      fill:$color-crail;
-  }
-  path{
-      stroke-width:8;
-      stroke:$color-crail;
-  }
+   //========js for toggling sort dropdown ======//
+   &.sort-option-btn{
+    &.dropdown__show{
+        .dropdown{
+            display: flex !important;
+        }
+    }
+   }
 }
 
 //=============sort-option-text =============================//
