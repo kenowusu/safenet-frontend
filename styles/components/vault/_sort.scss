@@ -52,3 +52,11 @@ text-transform: uppercase;
   font-weight: bold;
   font-size:.9rem;
 }
+
+.header-options-userc-btn{
+  &.dropdown__show{
+      .dropdown{
+          display: flex !important;
+      }
+  }
+}
