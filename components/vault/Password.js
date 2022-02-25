@@ -1,5 +1,5 @@
-import {useEffect} from 'react';
-
+import {useState,useEffect} from 'react';
+import {v4 as uuid} from 'uuid';
 
 //=======================svg images =========//
 import EllipseSvg from '../../public/icons/options-vertical.svg';
@@ -55,7 +55,9 @@ const Password = () => {
             })
         })
     },[]);
+    
 
+    const [passwords,setPasswords] = useState([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
 
     return ( 
       
@@ -74,287 +76,36 @@ const Password = () => {
                         </tr>
                     </thead>
 
+                    
+                    {/* list passwords */}
+                    {passwords.map(password=>{
+
+                        return(
+
+                            <tr className="password-item-tr" key={uuid()}>
+                                <td className="password-item-td-name">
+                                    <span className="password-item-td-name-name">AWS AMAZON</span>
+                                    <span className='password-item-td-username'>kennethowusu@gmail.com</span>
+                                </td>
+                                <td className="password-item-td-folder">email</td>
+                                <td className="password-item-td-options">
+                                <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
+                                    ...
+                                    <PasswordOptDropdown/>
+                                </button>
+                                
+                            
+                                </td>
+                            </tr>
 
 
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
+                        );
 
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
-                    <tr className="password-item-tr">
-                        <td className="password-item-td-name">
-                            <span className="password-item-td-name-name">AWS AMAZON</span>
-                            <span className='password-item-td-username'>kennethowusu@gmail.com</span>
-                        </td>
-                        <td className="password-item-td-folder">email</td>
-                        <td className="password-item-td-options">
-                         <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                             ...
-                             <PasswordOptDropdown/>
-                        </button>
-                        
-                      
-                        </td>
-                    </tr>
-
+                    })}
 
                     
+                    
 
-
-                  
-
-                   
 
 
                 </table>
