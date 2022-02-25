@@ -2,12 +2,7 @@ import { useEffect } from "react";
 
 const PasswordOptDropdown = () => {
 
-    useEffect(()=>{
-        const sortOptionBtn = document.querySelector('.password-item-td-options-ellipse');
-        sortOptionBtn.addEventListener('click',e=>{
-            sortOptionBtn.classList.toggle('dropdown__show')
-        });
-    },[]);    
+    
     return ( 
         <div className="dropdown dropdown-password absolute ">
             <div className="dropdown-container">
