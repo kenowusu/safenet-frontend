@@ -1,0 +1,12 @@
+.tbox{
+ padding: 10px 16px;
+ border-radius:8px;
+
+ &:focus{
+     outline:0;
+ }
+}
+
+.tbox__border{
+    border:1px solid #eee;
+}
