@@ -25,7 +25,22 @@ const SortDropDown = () => {
              console.log('ok')
          })
      })
-    },[])
+
+     
+    window.addEventListener('click',(e)=>{
+        let openedDropdown =  document.querySelector('.sort-option-btn.dropdown__show');
+        
+           console.log(openedDropdown)
+           if(openedDropdown){
+            openedDropdown.classList.remove('dropdown__show');
+           }
+  
+       
+        })
+    },[]);
+
+
+
    
     return ( 
         <div className="dropdown  absolute ">

@@ -25,7 +25,7 @@ const Password = () => {
              //open current sortOption dropdown
 
            
-             const openedDropdowns = document.querySelectorAll('.password-item-td-options-ellipse-btn.dropdown__show');
+             const openedDropdowns = document.querySelectorAll('.dropdown__show');
              /*
               Hide all opened dropdown and open/show current clicked dropdown
               Visit this again
