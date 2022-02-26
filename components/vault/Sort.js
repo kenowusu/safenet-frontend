@@ -8,43 +8,43 @@ import SortSvg from '../../public/icons/options/options-sort.svg';
 
 const Sort = () => {
 
-    useEffect(()=>{
-     const sortOptionBtn = document.querySelector('.sort-option-btn');
-     sortOptionBtn.addEventListener('click',e=>{
-         e.stopPropagation();
+    // useEffect(()=>{
+    //  const sortOptionBtn = document.querySelector('.sort-option-btn');
+    //  sortOptionBtn.addEventListener('click',e=>{
+    //      e.stopPropagation();
 
          
-         const openedDropdowns = document.querySelectorAll('.dropdown__show');
-         /*
-          Hide all opened dropdown and open/show current clicked dropdown
-          Visit this again
-         */
-         openedDropdowns.forEach(openedDropdown=>{
-             if(openedDropdown !== e.target){
-                openedDropdown.classList.remove('dropdown__show')
-             }
+    //      const openedDropdowns = document.querySelectorAll('.dropdown__show');
+    //      /*
+    //       Hide all opened dropdown and open/show current clicked dropdown
+    //       Visit this again
+    //      */
+    //      openedDropdowns.forEach(openedDropdown=>{
+    //          if(openedDropdown !== e.target){
+    //             openedDropdown.classList.remove('dropdown__show')
+    //          }
              
-         })
-         sortOptionBtn.classList.toggle('dropdown__show')
-     })
+    //      })
+    //      sortOptionBtn.classList.toggle('dropdown__show')
+    //  })
 
 
-     window.addEventListener('click',(e)=>{
-        let openedDropdown =  document.querySelector('.header-options-userc-btn.dropdown__show');
+    //  window.addEventListener('click',(e)=>{
+    //     let openedDropdown =  document.querySelector('.header-options-userc-btn.dropdown__show');
         
-           console.log(openedDropdown)
-           if(openedDropdown){
-            openedDropdown.classList.remove('dropdown__show');
-           }
+    //        console.log(openedDropdown)
+    //        if(openedDropdown){
+    //         openedDropdown.classList.remove('dropdown__show');
+    //        }
   
        
-        })
+    //     })
         
           
         
 
          
-    },[])
+    // },[])
     return ( 
         <div className="sort">
 
