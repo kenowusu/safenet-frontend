@@ -1,5 +1,7 @@
 import {useState,useEffect} from 'react';
 import {v4 as uuid} from 'uuid';
+import Cookies from 'universal-cookie';
+const cookie = require('cookie')
 
 //=======================svg images =========//
 import EllipseSvg from '../../public/icons/options-vertical.svg';
@@ -10,10 +12,46 @@ import PasswordOptDropdown from '../dropdown/passwordOptDropdown';
 import AddPasswordModal from '../modal/addPasswordModal';
 
 
+
 const Password = () => {
+    const api = process.env.NEXT_PUBLIC_API;
+  
+    const [passwords,setPasswords] = useState([]);
+    
+    
 
 
+
+    const fetchPasswords = async(api)=>{
+        
+        const cookies = new Cookies();
+        const token = cookies.get('tk');
+        const reqCookies = cookie.parse(`tk=${token}`);
+        const url =  `${api}/api/passwords`;
+
+        const options = {
+            method:"GET",
+            credentials:'include',
+            headers:{
+                "cookie":reqCookies
+            }
+        }
+        const passReq = await fetch(url,options);
+
+        if(passReq.status === 200){
+            const passRes = await passReq.json();
+            
+            setPasswords(passRes);
+          
+        }
+        
+        
+        
+    }
+
+     
     useEffect(()=>{
+        fetchPasswords(api)
         const sortOptionBtns = document.querySelectorAll('.password-item-td-options-ellipse');
     
         sortOptionBtns.forEach((sortOptionBtn)=>{
@@ -57,13 +95,13 @@ const Password = () => {
     },[]);
     
 
-    const [passwords,setPasswords] = useState([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+    
 
     return ( 
       <>     
 
               {/*add password component*/}
-              <AddPasswordModal/>
+              {/* <AddPasswordModal/> */}
 
               
               <div className="password">
@@ -91,10 +129,10 @@ const Password = () => {
 
                                 <tr className="password-item-tr" key={uuid()}>
                                     <td className="password-item-td-name">
-                                        <span className="password-item-td-name-name">AWS AMAZON</span>
-                                        <span className='password-item-td-username'>kennethowusu@gmail.com</span>
+                                        <span className="password-item-td-name-name">{password.name}</span>
+                                        <span className='password-item-td-username'>{password.username}</span>
                                     </td>
-                                    <td className="password-item-td-folder">email</td>
+                                    <td className="password-item-td-folder">{password.folder}</td>
                                     <td className="password-item-td-options">
                                     <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
                                         ...
