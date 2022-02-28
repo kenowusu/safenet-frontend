@@ -10,6 +10,7 @@ import PasswordShowSvg from '../../public/icons/eye-reveal.svg';
 //=========import components ====================//
 import PasswordOptDropdown from '../dropdown/passwordOptDropdown';
 import AddPasswordModal from '../modal/addPasswordModal';
+import { array } from 'yup';
 
 
 
@@ -48,50 +49,70 @@ const Password = () => {
         
         
     }
-
-     
-    useEffect(()=>{
-        fetchPasswords(api)
-        const sortOptionBtns = document.querySelectorAll('.password-item-td-options-ellipse');
     
-        sortOptionBtns.forEach((sortOptionBtn)=>{
-            sortOptionBtn.addEventListener('click',e=>{
-              //prevent all other event bubbling
-              e.stopPropagation();
+    const stopPropagation = (e)=>{
+        e.stopPropagation()
+    }
+    const toggleDropdown = (e) =>{
+        e.stopPropagation();
 
-             //hide all sortOptionBtn showing dropdown
-             //open current sortOption dropdown
+        //find all elements with dropdown show
+        const allShownDropdowns = document.querySelectorAll('.dropdown__show');
 
-           
-             const openedDropdowns = document.querySelectorAll('.dropdown__show');
-             /*
-              Hide all opened dropdown and open/show current clicked dropdown
-              Visit this again
-             */
-             openedDropdowns.forEach(openedDropdown=>{
-                 if(openedDropdown !== e.target){
-                    openedDropdown.classList.remove('dropdown__show')
-                 }
-                 
-             })
-    
-            e.target.classList.toggle('dropdown__show')
-             
-                
-
-            });
+        const getCurrentId = e.target.getAttribute('data-target');
+        
+        const shownDropdowns = Array.prototype.slice.call(allShownDropdowns).filter(shownDropdown=>{
+             return getCurrentId !== shownDropdown.getAttribute('id');
         })
 
-        window.addEventListener('click',(e)=>{
-            let openedDropdowns =  document.querySelectorAll('.password-item-td-options-ellipse');
+        shownDropdowns.forEach(openedDropdown=>{
+            openedDropdown.classList.remove('dropdown__show');
+        })
+       
 
-            openedDropdowns.forEach((openedDropdown)=>{
-                if(openedDropdown.classList.contains('dropdown__show')){
-                    openedDropdown.classList.remove('dropdown__show')
-                    console.log('yeah')
+
+        // console.log(shownDropdowns)
+        
+
+
+         
+        
+             //==get current dropdownId
+        const dropdownId = e.target.getAttribute('data-target');
+
+        //==select current dropdown with dropdownId
+        const dropdown = e.target.querySelector(`#${dropdownId}`);
+
+        //===toggle class on targeted dropdown
+        dropdown.classList.toggle('dropdown__show');
+        
+       
+
+    }
+
+    
+     
+    useEffect(()=>{
+        fetchPasswords(api);
+       
+
+        document.body.addEventListener('click',()=>{
+            const shownDropdowns = document.querySelectorAll('.dropdown');
+            shownDropdowns.forEach((shownDropdown)=>{
+                
+                if(shownDropdown.classList.contains('dropdown__show')){
+                    console.log('ok3')
+                    shownDropdown.classList.remove('dropdown__show');
                 }
             })
         })
+
+
+        
+    
+
+        
+        
     },[]);
     
 
@@ -101,10 +122,10 @@ const Password = () => {
       <>     
 
               {/*add password component*/}
-              {/* <AddPasswordModal/> */}
+              <AddPasswordModal/>
 
               
-              <div className="password">
+              <div className="password ">
 
                
 
@@ -124,21 +145,21 @@ const Password = () => {
                         
                         {/* list passwords */}
                         {passwords.map(password=>{
-
+                            let passwordId = `pass${uuid()}`;
                             return(
 
-                                <tr className="password-item-tr" key={uuid()}>
+                                <tr className="password-item-tr" key={passwordId} stopPropagation={stopPropagation}>
                                     <td className="password-item-td-name">
                                         <span className="password-item-td-name-name">{password.name}</span>
                                         <span className='password-item-td-username'>{password.username}</span>
                                     </td>
                                     <td className="password-item-td-folder">{password.folder}</td>
                                     <td className="password-item-td-options">
-                                    <button className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
+                                    <button onClick={toggleDropdown} data-toggle="dropdown" data-target={passwordId} className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
                                         ...
 
                                         {/* password options component */}
-                                        <PasswordOptDropdown/>
+                                        <PasswordOptDropdown passwordId={passwordId}/>
                                     </button>
                                     
                                 

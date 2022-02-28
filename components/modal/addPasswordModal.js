@@ -20,7 +20,6 @@ const AddPasswordModal = () => {
      shownModals.forEach(shownModal=>{
          
         shownModal.addEventListener('click',()=>{
-            console.log('fired')
             shownModal.classList.add('modal_is_hidden')
         })
      })
@@ -55,13 +54,13 @@ const AddPasswordModal = () => {
 
                     {/* modal-header */}
                     <div className="modal-header">
-                        <span class="modal-title">Add Password</span>
+                        <span className="modal-title">Add Password</span>
                     </div>
 
                     
                     {/* modal-body */}
                     <div className="modal-body">
-                        <div class="flex flex-column flex-col p-8 pt-20">
+                        <div className="flex flex-column flex-col p-8 pt-20">
 
                          
                               <div className="flex">
@@ -91,9 +90,9 @@ const AddPasswordModal = () => {
                     <div className="modal-footer">
                         
 
-                        <div class="flex w-full h-full justify-end items-center pr-4">
-                            <button class="btn btn__grey mr-3" data-toggle="modal-dismiss" hide-modal="addPasswordModal">Cancel</button>
-                            <button class="btn btn__leave justify-self-start">Save</button>
+                        <div className="flex w-full h-full justify-end items-center pr-4">
+                            <button className="btn btn__grey mr-3" data-toggle="modal-dismiss" hide-modal="addPasswordModal">Cancel</button>
+                            <button className="btn btn__leave justify-self-start">Save</button>
                         </div>
                     {/* modal footer */}
 

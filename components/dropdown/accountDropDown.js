@@ -13,27 +13,18 @@ const AccountDropDown = () => {
  
 
 
-    // useEffect(()=>{
-    //     const sortShowItems = document.querySelectorAll('.dropdown-option-item__hide');
-    //     const skipBtnForElements = document.querySelectorAll('.dropdown-title');
-   
-    //     skipBtnForElements.forEach((item)=>{
-    //        item.addEventListener('click',(e)=>{
-    //         //    e.stopPropagation();
-    //        })
-    //     })
-    //     sortShowItems.forEach((sortShowItem)=>{
-    //         sortShowItem.addEventListener('click',(e)=>{
-    //             // e.stopPropagation();
-    //             console.log('ok')
-    //         })
-    //     })
-    //    },[])
+    useEffect(()=>{
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click',()=>{
+            logout();
+        })
+      },[])
     
     //===============logout =============//
+    
 
     const logout = ()=>{
-       
+        console.log('logout clicked')
         const cookies = new Cookies();
         //clear cookie and redirect to '/login'
         cookies.set('tk','');
@@ -44,14 +35,14 @@ const AccountDropDown = () => {
 
    
     return ( 
-        <div className="dropdown  account-dropdown absolute ">
+        <div className="dropdown  dropdown__useroptions absolute " id="user-options-dropdown">
             <div className="dropdown-container">
                 
                 <div className="dropdown-title"><span>Accout</span></div>
 
                 <div className="dropdown-option">
                     <div className="dropdown-option-item"><span className="dropdown-option-item-text">Settings</span></div>
-                    <div className="dropdown-option-item" onClick={logout}><span className="dropdown-option-item-text">Logout</span></div>
+                    <div className="dropdown-option-item" id="logoutBtn"><span className="dropdown-option-item-text">Logout</span></div>
                 
                 </div>{/*dropdown-option */}
             

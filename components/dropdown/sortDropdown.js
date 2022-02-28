@@ -10,40 +10,12 @@ import RecentSvgImage from '../../public/icons/options/options-recent.svg';
 const SortDropDown = () => {
 
 
-    // useEffect(()=>{
-    //  const sortShowItems = document.querySelectorAll('.dropdown-option-item__hide');
-    //  const skipBtnForElements = document.querySelectorAll('.dropdown-title');
-
-    //  skipBtnForElements.forEach((item)=>{
-    //     item.addEventListener('click',(e)=>{
-    //         e.stopPropagation();
-    //     })
-    //  })
-    //  sortShowItems.forEach((sortShowItem)=>{
-    //      sortShowItem.addEventListener('click',(e)=>{
-    //          e.stopPropagation();
-    //          console.log('ok')
-    //      })
-    //  })
-
-     
-    // window.addEventListener('click',(e)=>{
-    //     let openedDropdown =  document.querySelector('.sort-option-btn.dropdown__show');
-        
-    //        console.log(openedDropdown)
-    //        if(openedDropdown){
-    //         openedDropdown.classList.remove('dropdown__show');
-    //        }
-  
-       
-    //     })
-    // },[]);
 
 
 
    
     return ( 
-        <div className="dropdown  absolute ">
+        <div className="dropdown  dropdown__sort absolute " id="dropdown-sort">
             <div className="dropdown-container">
                 
                 <div className="dropdown-title"><span>Sort By</span></div>

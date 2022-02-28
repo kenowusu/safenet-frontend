@@ -12,28 +12,26 @@ import UserSvg from '/public/icons/options/options-user.svg';
 import AccountDropDown from '../dropdown/accountDropDown';
 
 const Header = () => {
+    const toggleDropdown = (e) =>{
+        e.stopPropagation();
 
-    // useEffect(()=>{
-    //     const sortOptionBtn = document.querySelector('.header-options-userc-btn');
-    //     sortOptionBtn.addEventListener('click',e=>{
-         
-    //         e.stopPropagation();
-            
-    //         const openedDropdowns = document.querySelectorAll('.dropdown__show');
-    //         /*
-    //          Hide all opened dropdown and open/show current clicked dropdown
-    //          Visit this again
-    //         */
-    //         openedDropdowns.forEach(openedDropdown=>{
-    //             if(openedDropdown !== e.target){
-    //                openedDropdown.classList.remove('dropdown__show')
-    //             }
-                
-    //         })
-    //         sortOptionBtn.classList.toggle('dropdown__show')
-    //     })
+        //==get current dropdownId
+        const dropdownId = e.target.getAttribute('data-target');
+
+        //==select current dropdown with dropdownId
+        const dropdown = document.querySelector(`#${dropdownId}`);
+
+        //===toggle class on targeted dropdown
+        dropdown.classList.toggle('dropdown__show');
+
+    }
+
+    
+    useEffect(()=>{
+    
+
            
-    // },[]);  
+    },[]);  
     
     return ( 
         <div className="header">
@@ -48,8 +46,9 @@ const Header = () => {
                  <div className="header-options">
                      <div className="header-options-container">
                          <button className="header-options-importc flex justify-center items-center"><ImportSvg/></button>
-                         <button className="header-options-userc header-options-userc-btn dropdown__show flex justify-center items-center relative">
-                          <UserSvg/>
+                         <button className="header-options-userc header-options-userc-btn  flex justify-center items-center relative"
+                          data-toggle="dropdown" data-target="user-options-dropdown" onClick={toggleDropdown}>
+                          <UserSvg onClick={(e)=> e.stopPropagation}/>
                           <AccountDropDown/>
                          </button>
                      </div>

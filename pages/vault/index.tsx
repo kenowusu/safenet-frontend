@@ -23,28 +23,27 @@ import AddPassword from '../../components/vault/addPassword';
 
 import Layout from '../components/home/layout';
 
-// export const getServerSideProps = async(context)=>{
+export const getServerSideProps = async(context)=>{
     
-//     const API = process.env.API;
+    const API = process.env.API;
 
-//      const isloggedin = await isLoggedIn(API,context);
+     const isloggedin = await isLoggedIn(API,context);
 
-//      if(isloggedin){
-//         return {props:{}}
-//      }else{
-//       return{
-//         redirect:{destination:"/login"}
-//       }
-//       }
+     if(!isloggedin){
+      return{
+          redirect:{
+              destination:"/login"
+          }
+      }
+   }
+    return{
+        props:{
+            url:API
+        }
+    }
 
-//     return{
-//         props:{
-//             url:API
-//         }
-//     }
 
-
-// }
+}
 
 const PasswordPage: NextPage = () => {
   return (
