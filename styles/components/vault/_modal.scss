@@ -54,7 +54,10 @@
 
 }
 
-
+.modal-body{
+    overflow-y:scroll;
+    
+}
 .modal-footer{
     margin-top:auto;
     background-color: #fff;

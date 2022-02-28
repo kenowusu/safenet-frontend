@@ -1,0 +1,18 @@
+.scroll-beautify{
+    
+    scrollbar-width: thin;
+    scrollbar-color:$color-medow;
+
+    &::-webkit-scrollbar{
+        width:12px;
+    }
+    &::-webkit-scrollbar-track{
+        // background-color: $color-crail;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: $color-medow;
+        border-radius:24px;
+        
+    }
+}
