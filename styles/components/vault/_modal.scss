@@ -63,3 +63,32 @@
     display: flex;
 
 }
+
+.modal-form-group{ 
+    display: flex;
+    width:100%;
+    height:50px;
+    margin-bottom:5px;
+    font-weight: bold;
+    label{
+        width:150px;
+        text-align: right;
+        letter-spacing: 1px;
+        // background-color: antiquewhite;
+    }
+    div{
+        // background-color: blue;
+        width:100%;
+
+        input{
+            width:100%;
+            border: 1px solid #a5a5a5;
+
+            &:focus{
+                border: 1px solid $color-medow;
+            }
+        }
+
+
+    }
+}

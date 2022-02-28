@@ -50,7 +50,7 @@ const AddPasswordModal = () => {
 
                 
                 {/* modal-content */}
-                <div className="modal-content">
+                <form className="modal-content">
 
                     {/* modal-header */}
                     <div className="modal-header">
@@ -63,20 +63,40 @@ const AddPasswordModal = () => {
                         <div className="flex flex-column flex-col p-8 pt-20">
 
                          
-                              <div className="flex">
-                                <label  htmlFor="" className="mr-5 rd-modal-text">Url</label>
-                                <input className="tbox  tbox__border mb-6" type="text" />
+                             
+
+                              <div className="modal-form-group">
+                                <label htmlFor="" className="mr-5 ">Url</label>
+                                <div>
+                                    <input className="tbox  tbox__border " type="text"  />
+                                </div>
+                                
                               </div>
 
-                              <div>
-                                <label htmlFor="" className="mr-5 rd-modal-text">Username</label>
-                                <input  className="tbox  tbox__border mb-6" type="text" />
+                              <div className="modal-form-group">
+                                <label htmlFor="" className="mr-5 ">Name</label>
+                                <div>
+                                    <input className="tbox  tbox__border " type="text"  />
+                                </div>
+                                
                               </div>
 
-                              <div>
-                                <label htmlFor="" className="mr-5 rd-modal-text">Password</label>
-                                <input className="tbox  tbox__border mb-6" type="password"  />
+                              <div className="modal-form-group">
+                                <label htmlFor="" className="mr-5 ">Username</label>
+                                <div>
+                                    <input className="tbox  tbox__border " type="text"  />
+                                </div>
+                                
                               </div>
+                      
+                              <div className="modal-form-group">
+                                <label htmlFor="" className="mr-5 ">Password</label>
+                                <div>
+                                    <input className="tbox  tbox__border " type="password"  />
+                                </div>
+                                
+                              </div>
+                      
                       
 
                         </div>
@@ -99,7 +119,7 @@ const AddPasswordModal = () => {
 
                     </div>
                
-                </div>
+                </form>
   
 
 
