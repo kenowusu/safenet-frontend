@@ -9,8 +9,25 @@ import SortSvg from '../../public/icons/options/options-sort.svg';
 const Sort = () => {
 
     const toggleDropdown = (e) =>{
+
+        e.stopPropagation();
+
+        //find all elements with dropdown show
+        const allShownDropdowns = document.querySelectorAll('.dropdown__show');
+
+        const getCurrentId = e.target.getAttribute('data-target');
+        
+        const shownDropdowns = Array.prototype.slice.call(allShownDropdowns).filter(shownDropdown=>{
+             return getCurrentId !== shownDropdown.getAttribute('id');
+        })
+
+        shownDropdowns.forEach(openedDropdown=>{
+            openedDropdown.classList.remove('dropdown__show');
+        })
+       
+
  
-         e.stopPropagation();
+  
         //==get current dropdownId
         const dropdownId = e.target.getAttribute('data-target');
         console.log(dropdownId)

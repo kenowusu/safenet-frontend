@@ -13,7 +13,24 @@ import AccountDropDown from '../dropdown/accountDropDown';
 
 const Header = () => {
     const toggleDropdown = (e) =>{
+
+
         e.stopPropagation();
+
+        //find all elements with dropdown show
+        const allShownDropdowns = document.querySelectorAll('.dropdown__show');
+
+        const getCurrentId = e.target.getAttribute('data-target');
+        
+        const shownDropdowns = Array.prototype.slice.call(allShownDropdowns).filter(shownDropdown=>{
+             return getCurrentId !== shownDropdown.getAttribute('id');
+        })
+
+        shownDropdowns.forEach(openedDropdown=>{
+            openedDropdown.classList.remove('dropdown__show');
+        })
+       
+
 
         //==get current dropdownId
         const dropdownId = e.target.getAttribute('data-target');
