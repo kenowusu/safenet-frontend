@@ -13,7 +13,7 @@ import MenuSidebar from '../../components/vault/MenuSidebar';
 import Sort from '../../components/vault/Sort';
 import Password from '../../components/vault/Password';
 import AddPassword from '../../components/vault/addPassword';
-
+import PasswordContextProvider from '../../contexts/PasswordContext';
 
 
 
@@ -50,7 +50,10 @@ const PasswordPage: NextPage = () => {
     <div className="page_container " >
       <Header/>
       <Sort/>
-      <Password/>
+      <PasswordContextProvider>
+        <Password/>
+      </PasswordContextProvider>
+     
       <AddPassword/>
       <MenuSidebar/>
       

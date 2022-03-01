@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react';
+import {useState,useContext,useEffect} from 'react';
 import {v4 as uuid} from 'uuid';
 import Cookies from 'universal-cookie';
 const cookie = require('cookie')
@@ -13,43 +13,16 @@ import AddPasswordModal from '../modal/addPasswordModal';
 import { array } from 'yup';
 
 
+//==============import contexts============//
+import {PasswordContext} from '../../contexts/PasswordContext';
 
 const Password = () => {
     const api = process.env.NEXT_PUBLIC_API;
+
+    //====contexts=======//
+    const {passwords} = useContext(PasswordContext);
+
   
-    const [passwords,setPasswords] = useState([]);
-    
-    
-
-
-
-    const fetchPasswords = async(api)=>{
-        
-        const cookies = new Cookies();
-        const token = cookies.get('tk');
-        const reqCookies = cookie.parse(`tk=${token}`);
-        const url =  `${api}/api/passwords`;
-
-        const options = {
-            method:"GET",
-            credentials:'include',
-            headers:{
-                "cookie":reqCookies
-            }
-        }
-        const passReq = await fetch(url,options);
-
-        if(passReq.status === 200){
-            const passRes = await passReq.json();
-            
-            setPasswords(passRes);
-          
-        }
-        
-        
-        
-    }
-    
     const stopPropagation = (e)=>{
         e.stopPropagation()
     }
@@ -71,11 +44,6 @@ const Password = () => {
        
 
 
-        // console.log(shownDropdowns)
-        
-
-
-         
         
              //==get current dropdownId
         const dropdownId = e.target.getAttribute('data-target');
@@ -90,10 +58,12 @@ const Password = () => {
 
     }
 
+
     
-     
+
+    //===================use effect ================//
     useEffect(()=>{
-        fetchPasswords(api);
+       
        
 
         document.body.addEventListener('click',()=>{
@@ -101,18 +71,12 @@ const Password = () => {
             shownDropdowns.forEach((shownDropdown)=>{
                 
                 if(shownDropdown.classList.contains('dropdown__show')){
-                    console.log('ok3')
                     shownDropdown.classList.remove('dropdown__show');
                 }
             })
         })
         
-        
-        
-    
-
-        
-        
+  
     },[]);
     
 

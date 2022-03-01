@@ -79,7 +79,6 @@ const AddPasswordModal = () => {
      
      // hide all modals when modal is clicked
      const shownModals = document.querySelectorAll('.modal');
-     console.log(shownModals)
      shownModals.forEach(shownModal=>{
          
         shownModal.addEventListener('click',()=>{
@@ -100,7 +99,7 @@ const AddPasswordModal = () => {
     cancelModals.forEach(cancelModal=>{
         cancelModal.addEventListener('click',(e)=>{
             const modalTargetId = cancelModal.getAttribute('hide-modal');
-            console.log(modalTargetId)
+
             const modal = document.getElementById(modalTargetId);
             modal.classList.add('modal_is_hidden');
 
@@ -128,7 +127,7 @@ const AddPasswordModal = () => {
                         <div className="flex flex-column flex-col p-8 pt-20">
 
                          
-                              <div style={{color:"red",padding:"0 0px  15px 150px","font-size":".9rem","font-weight":"bold"
+                              <div style={{color:"red",padding:"0 0px  15px 150px","fontSize":".9rem","font-weight":"bold"
                             
                               }}>{passValErr}</div>
 
@@ -185,7 +184,7 @@ const AddPasswordModal = () => {
 
                         <div className="flex w-full h-full justify-end items-center pr-4">
                             <button className="btn btn__grey mr-3" data-toggle="modal-dismiss" hide-modal="addPasswordModal">Cancel</button>
-                            <button type="submit"  forModal="addPasswordModal" className="btn btn__leave justify-self-start"
+                            <button type="submit"   className="btn btn__leave justify-self-start"
                             >Save</button>
                         </div>
                     {/* modal footer */}
