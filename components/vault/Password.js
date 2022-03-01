@@ -10,11 +10,13 @@ import PasswordShowSvg from '../../public/icons/eye-reveal.svg';
 //=========import components ====================//
 import PasswordOptDropdown from '../dropdown/passwordOptDropdown';
 import AddPasswordModal from '../modal/addPasswordModal';
+import editPasswordModal from '../modal/editPasswordModal';
 import { array } from 'yup';
 
 
 //==============import contexts============//
 import {PasswordContext} from '../../contexts/PasswordContext';
+import EditPasswordModal from '../modal/editPasswordModal';
 
 const Password = () => {
     const api = process.env.NEXT_PUBLIC_API;
@@ -23,9 +25,7 @@ const Password = () => {
     const {passwords} = useContext(PasswordContext);
 
   
-    const stopPropagation = (e)=>{
-        e.stopPropagation()
-    }
+    
     const toggleDropdown = (e) =>{
         e.stopPropagation();
 
@@ -88,6 +88,7 @@ const Password = () => {
               {/*add password component*/}
               <AddPasswordModal/>
 
+              <EditPasswordModal/>
               
               <div className="password ">
 
@@ -106,13 +107,15 @@ const Password = () => {
                             </tr>
                         </thead>
 
+                        <tbody>
+
                         
                         {/* list passwords */}
                         {passwords.map(password=>{
                             let passwordId = `pass${uuid()}`;
                             return(
 
-                                <tr className="password-item-tr" key={passwordId} stopPropagation={stopPropagation}>
+                                <tr className="password-item-tr" key={passwordId}>
                                     <td className="password-item-td-name">
                                         <span className="password-item-td-name-name">{password.name}</span>
                                         <span className='password-item-td-username'>{password.username}</span>
@@ -137,7 +140,7 @@ const Password = () => {
 
                         
                         
-
+                     </tbody>
 
 
                     </table>

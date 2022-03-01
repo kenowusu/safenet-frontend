@@ -20,7 +20,6 @@ const PasswordContextProvider = (props)=>{
         const token = cookies.get('tk');
         const reqCookies = cookie.parse(`tk=${token}`);
         const url =  `${api}/api/passwords`;
-        console.log('fetch running')
         const options = {
             method:"GET",
             credentials:'include',
