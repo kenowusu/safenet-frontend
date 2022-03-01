@@ -1,16 +1,21 @@
-import { useEffect,useState } from "react";
+import { useEffect,useState,useContext } from "react";
+import { PasswordContext } from "../../contexts/PasswordContext";
+
 
 
 
 
 
 const AddPasswordModal = () => {
+    //=========import contexts==============//
+    const {passValErr,addPassword} = useContext(PasswordContext);
+    
     const api = process.env.NEXT_PUBLIC_API;
     const [url,setUrl] = useState('');
     const [name,setName] = useState('');
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
-    const [passValErr,setPassValErr] = useState('');
+    
 
     const newPassword = {
         url,
@@ -19,51 +24,13 @@ const AddPasswordModal = () => {
         password
     }
 
-
-    const addPassword = async(e)=>{
+    const addPasswordModal = (e)=>{
         e.preventDefault();
+        addPassword(newPassword,setUrl,setName,setUsername,setPassword);
        
-        // return
-        const apiUrl = `${api}/api/passwords/create`;
-        const passReqOptions = {
-            method:"POST",
-            body:JSON.stringify(newPassword),
-            credentials:'include',
-            headers:{
-                "Content-Type":"application/json"
-            }
-        }
-        const passReq = await fetch(apiUrl,passReqOptions);
-
-     
-
-        if(passReq.status === 200 || passReq.status == 422){
-
-            const passRes  = await passReq.json();
-            
-            //=======if passowrd invalid fields
-            if(passReq.status == 422){
-                setPassValErr(passRes.message)
-            }
-            // if password saves
-            else if(passReq.status == 200){
-                //come back and change
-                console.log('password saved');
-                //reset password modal state
-                const api = process.env.NEXT_PUBLIC_API;
-                setUrl('');
-                setName('');
-                setUsername('');
-                setPassword('');
-                setPassValErr('');
-
-     
-                document.getElementById("addPasswordModal").classList.toggle('modal_is_hidden');
-
-            }
-
-        }
+        
     }
+ 
 
     // hide all modals onClick on modal
     useEffect(()=>{
@@ -103,6 +70,12 @@ const AddPasswordModal = () => {
             const modal = document.getElementById(modalTargetId);
             modal.classList.add('modal_is_hidden');
 
+            
+            setUrl("");
+            setName('');     
+            setUsername('');
+            setPassword('');
+
         })
     })
     },[])
@@ -114,7 +87,7 @@ const AddPasswordModal = () => {
 
                 
                 {/* modal-content */}
-                <form className="modal-content" onSubmit={addPassword}>
+                <form className="modal-content" onSubmit={addPasswordModal} >
 
                     {/* modal-header */}
                     <div className="modal-header">
@@ -127,7 +100,7 @@ const AddPasswordModal = () => {
                         <div className="flex flex-column flex-col p-8 pt-20">
 
                          
-                              <div style={{color:"red",padding:"0 0px  15px 150px","fontSize":".9rem","font-weight":"bold"
+                              <div id="valErr" style={{color:"red",padding:"0 0px  15px 150px","fontSize":".9rem","fontWeight":"bold"
                             
                               }}>{passValErr}</div>
 
@@ -183,7 +156,7 @@ const AddPasswordModal = () => {
                         
 
                         <div className="flex w-full h-full justify-end items-center pr-4">
-                            <button className="btn btn__grey mr-3" data-toggle="modal-dismiss" hide-modal="addPasswordModal">Cancel</button>
+                            <button type="button" className="btn btn__grey mr-3" data-toggle="modal-dismiss" hide-modal="addPasswordModal">Cancel</button>
                             <button type="submit"   className="btn btn__leave justify-self-start"
                             >Save</button>
                         </div>
