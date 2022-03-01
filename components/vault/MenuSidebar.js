@@ -34,19 +34,21 @@ const MenuSidebar = () => {
                 </li>
                 
                
-                <li className="menu__sidebar__li">
-                    <Link href="/notes">
-                        <a className="menu__sidebar__link" >
+                <li className="menu__sidebar__li not-implemented">
+                    {/* <Link href="/notes"> */}
+                    <span className="not-implemented-text">not implemented</span>
+                        <a className="menu__sidebar__link not-implemented"  >
                         <div className="menu__sidebar__imgcont">
                             <NoteSvg/>
                         </div>
                         <p className="menu__sidebar__linktext">Notes</p>
                         
                     </a>
-                    </Link>
+                    {/* </Link> */}
                 </li>
-                <li className="menu__sidebar__li">
-                    <Link href="/notes">
+                <li className="menu__sidebar__li not-implemented">
+                    <span className="not-implemented-text">not implemented</span>
+                    {/* <Link href="/notes"> */}
                         <a className="menu__sidebar__link" >
                         <div className="menu__sidebar__imgcont">
                             <SecurityCheckSvg/>
@@ -54,7 +56,7 @@ const MenuSidebar = () => {
                         <p className="menu__sidebar__linktext">Security Dash</p>
                         
                     </a>
-                    </Link>
+                    {/* </Link> */}
                 </li>
                 <li className="menu__sidebar__li">
                     <Link href="/passwords">
