@@ -13,6 +13,21 @@ const PasswordContextProvider = (props)=>{
     const [passwords,setPasswords] = useState([]);
     const [passValErr,setPassValErr] = useState('');
 
+    //=====edit password state====//
+    const [editUrl,setEditUrl] = useState('');
+    const [editName,setEditName] = useState('');
+    const [editUsername,setEditUsername] = useState('');
+    const [editPassword,setEditPassword] = useState('');
+    
+    const editPass = {
+        editUrl,
+        editName,
+        editUsername,
+        editPassword
+    
+    }
+
+
     //==================fetch Passwords===========//
     const fetchPasswords = async(api)=>{
         
@@ -33,6 +48,7 @@ const PasswordContextProvider = (props)=>{
             const passRes = await passReq.json();
             
             setPasswords(passRes);
+            
           
         } 
     }
@@ -86,6 +102,47 @@ const PasswordContextProvider = (props)=>{
 
 
     
+
+        //=================view Password=====================
+
+        const viewPassword = async(e,)=>{
+            let target = e.target;
+    
+            //========if not tr, go up dom until you find password tr============//
+            for(let i=0;i<4;i++){
+                if(target.classList.contains('password-item-tr')){
+                    break;
+                }
+                target = target.parentNode;
+            }
+    
+           const passwordId = target.getAttribute('passid');
+    
+           //===fetch password with password Id =========//
+           const url = `${api}/api/passwords/password/${passwordId}`;
+           const reqOptions = {
+               method:"GET",
+               credentials:'include'
+           }
+           const passReq = await fetch(url,reqOptions);
+           
+           if(passReq.status === 200){
+               const passRes = await passReq.json();
+               let password = passRes.password;
+            
+               
+               //===========show Password Edit modal==============//
+               setEditUrl(password.url);
+               setEditName(password.name);
+               setEditPassword(password.password);
+               setEditUsername(password.username)
+
+               console.log(editPass)
+               document.querySelector('#editPasswordModal').classList.toggle('modal_is_hidden');
+              return;
+           }
+          
+        }
    
 
     useEffect(()=>{
@@ -94,7 +151,13 @@ const PasswordContextProvider = (props)=>{
 
     
     return(
-        <PasswordContext.Provider value={{passwords,passValErr,addPassword}}>
+        <PasswordContext.Provider value={{passwords,
+            passValErr,
+            addPassword,
+            viewPassword,
+            editPass
+                                        
+             }}>
             {props.children}
         </PasswordContext.Provider>
     )

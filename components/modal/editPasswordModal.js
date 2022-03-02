@@ -1,6 +1,7 @@
 
 import {useState,useContext,useEffect} from 'react';
 
+import { PasswordContext } from '../../contexts/PasswordContext';
 
 
 
@@ -9,13 +10,23 @@ import {useState,useContext,useEffect} from 'react';
 
 
 
+const EditPasswordModal = ({passwordData}) => {
 
-const EditPasswordModal = () => {
+   //==== use contexts=======//
+   const {passwords,viewPassword,editPass} = useContext(PasswordContext);
+
      const api = process.env.NEXT_PUBLIC_API;
-     const [url,setUrl] = useState('');
-     const [name,setName] = useState('');
-     const [username,setUsername] = useState('');
-     const [password,setPassword] = useState('');
+     const [url,setUrl] = useState(editPass.editUrl);
+     const [name,setName] = useState(editPass.editName);
+     const [username,setUsername] = useState(editPass.editUsername);
+     const [password,setPassword] = useState(editPass.editPassword);
+
+   
+
+
+
+     //edit password states===//
+    
 
 
      // hide all modals onClick on modal
@@ -66,7 +77,7 @@ const EditPasswordModal = () => {
        })
        },[])
    
-    
+     
     return ( 
 
         <div className="modal modal_is_hidden" id="editPasswordModal" >
@@ -95,7 +106,7 @@ const EditPasswordModal = () => {
                             <label htmlFor="" className="mr-5 ">Url</label>
                             <div>
                                 <input className="tbox  tbox__border " type="text" 
-                                value={url} onChange={(e)=>setUrl(e.target.value)}
+                                value={url}  onChange={(e)=>setUrl(e.target.value)}
                                 />
                             </div>
                             

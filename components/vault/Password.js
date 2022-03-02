@@ -17,12 +17,21 @@ import { array } from 'yup';
 //==============import contexts============//
 import {PasswordContext} from '../../contexts/PasswordContext';
 import EditPasswordModal from '../modal/editPasswordModal';
+import AddPassword from './addPassword';
 
 const Password = () => {
     const api = process.env.NEXT_PUBLIC_API;
 
-    //====contexts=======//
-    const {passwords} = useContext(PasswordContext);
+    //========set states=================//
+
+
+
+     //==== use contexts=======//
+     const {passwords,viewPassword,editPass} = useContext(PasswordContext);
+
+
+
+   
 
   
     
@@ -80,67 +89,54 @@ const Password = () => {
     },[]);
     
 
-    
+
 
     return ( 
       <>     
 
-              {/*add password component*/}
+            {/*add password modal  component*/}
               <AddPasswordModal/>
-
-              <EditPasswordModal/>
+              
+             {/*view/edit password modal component*/}
+              <EditPasswordModal />
               
               <div className="password ">
-
-               
-
                 <div className="password-container">
-
-
                     <table className="password-table">
-
-                        <thead  className="password-table-tbh">
-                            <tr className="password-table-tbh-tr">
-                                <td className='password-table-tbh-tr-td name'>Name</td>
-                                <td className='password-table-tbh-tr-td folder'>Folder</td>
-                                <td className='password-table-tbh-tr-td options'></td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                        
-                        {/* list passwords */}
-                        {passwords.map(password=>{
-                            let passwordId = `pass${uuid()}`;
-                            return(
-
-                                <tr className="password-item-tr" key={passwordId}>
-                                    <td className="password-item-td-name">
-                                        <span className="password-item-td-name-name">{password.name}</span>
-                                        <span className='password-item-td-username'>{password.username}</span>
-                                    </td>
-                                    <td className="password-item-td-folder">{password.folder}</td>
-                                    <td className="password-item-td-options">
-                                    <button onClick={toggleDropdown} data-toggle="dropdown" data-target={passwordId} className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
-                                        ...
-
-                                        {/* password options component */}
-                                        <PasswordOptDropdown passwordId={passwordId}/>
-                                    </button>
-                                    
-                                
-                                    </td>
+                            <thead  className="password-table-tbh">
+                                <tr className="password-table-tbh-tr">
+                                    <td className='password-table-tbh-tr-td name'>Name</td>
+                                    <td className='password-table-tbh-tr-td folder'>Folder</td>
+                                    <td className='password-table-tbh-tr-td options'></td>
                                 </tr>
+                            </thead>
 
 
-                            );
+                            <tbody>
+                                {/* list passwords */}
+                                {passwords.map(password=>{
+                                    let passwordtargetid = `pass${uuid()}`;
 
-                        })}
+                                    return(
+                                        <tr className="password-item-tr" passid={password.id} key={passwordtargetid} onClick={viewPassword} >
+                                        
+                                            <td className="password-item-td-name"  >
+                                                    <span className="password-item-td-name-name">{password.name}</span>
+                                                    <span className='password-item-td-username'>{password.username}</span>
+                                            </td>
+                                            <td className="password-item-td-folder">{password.folder}</td>
+                                            <td className="password-item-td-options">
+                                                <button onClick={toggleDropdown} data-toggle="dropdown" data-target={passwordtargetid} className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
+                                                    ...
 
-                        
-                        
-                     </tbody>
+                                                    {/* password options component */}
+                                                    <PasswordOptDropdown passwordId={passwordtargetid}/>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                        </tbody>
 
 
                     </table>
