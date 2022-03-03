@@ -13,79 +13,42 @@ import { PasswordContext } from '../../contexts/PasswordContext';
 const EditPasswordModal = ({passwordData}) => {
 
    //==== use contexts=======//
-   const {passwords,viewPassword,editPass} = useContext(PasswordContext);
+   const {editUrl,editName,editPassword,editUsername,setIsEditForm} = useContext(PasswordContext);
 
      const api = process.env.NEXT_PUBLIC_API;
-     const [url,setUrl] = useState(editPass.editUrl);
-     const [name,setName] = useState(editPass.editName);
-     const [username,setUsername] = useState(editPass.editUsername);
-     const [password,setPassword] = useState(editPass.editPassword);
+     const [url,setUrl] = useState(editUrl);
+     const [name,setName] = useState(editName);
+     const [username,setUsername] = useState(editUsername);
+     const [password,setPassword] = useState(editPassword);
 
    
 
 
-
+     const hideEditModal = (e)=>{
+        setIsEditForm(false)
+        console.log('yah! modal was hidden');
+    }
      //edit password states===//
     
 
 
      // hide all modals onClick on modal
     useEffect(()=>{
-        const modalBtns = document.querySelectorAll('[data-toggle="modal"]');
-        modalBtns.forEach(modalBtn=>{
-            modalBtn.addEventListener('click',(e)=>{
-                const modalTargetId = modalBtn.getAttribute('data-target');
-                const modalTarget = document.getElementById(modalTargetId);
-                modalTarget.classList.remove('modal_is_hidden');
-   
-            })
-        });
+     
         
-        // hide all modals when modal is clicked
-        const shownModals = document.querySelectorAll('.modal');
-        shownModals.forEach(shownModal=>{
-            
-           shownModal.addEventListener('click',()=>{
-               shownModal.classList.add('modal_is_hidden')
-           })
-        })
    
-       // stop modals from closing in  when modal content is clicked 
-       const shownModalBodys = document.querySelectorAll('.modal-content');
-       shownModalBodys.forEach(shownModalBody=>{
-           shownModalBody.addEventListener('click',(e)=>{
-               e.stopPropagation();
-           })
-       })
-   
-       //close modals when cancel is clicked
-       const cancelModals = document.querySelectorAll('[data-toggle="modal-dismiss"')
-       cancelModals.forEach(cancelModal=>{
-           cancelModal.addEventListener('click',(e)=>{
-               const modalTargetId = cancelModal.getAttribute('hide-modal');
-   
-               const modal = document.getElementById(modalTargetId);
-               modal.classList.add('modal_is_hidden');
-   
-               
-               setUrl("");
-               setName('');     
-               setUsername('');
-               setPassword('');
-   
-           })
-       })
        },[])
    
      
+
     return ( 
 
-        <div className="modal modal_is_hidden" id="editPasswordModal" >
-        <div className="modal-container">
+        <div className="modal" id="editPasswordModal" >
+        <div className="modal-container" onClick={hideEditModal}>
 
             
             {/* modal-content */}
-            <form className="modal-content" >
+            <form className="modal-content" onClick={(e)=> e.stopPropagation()} >
 
                 {/* modal-header */}
                 <div className="modal-header">
@@ -154,7 +117,7 @@ const EditPasswordModal = ({passwordData}) => {
                     
 
                     <div className="flex w-full h-full justify-end items-center pr-4">
-                        <button type="button" className="btn btn__grey mr-3" data-toggle="modal-dismiss" hide-modal="editPasswordModal">Cancel</button>
+                        <button type="button" className="btn btn__grey mr-3" data-toggle="modal-dismiss" onClick={hideEditModal} >Cancel</button>
                         <button type="submit"   className="btn btn__leave justify-self-start"
                         >Save</button>
                     </div>

@@ -27,7 +27,7 @@ const Password = () => {
 
 
      //==== use contexts=======//
-     const {passwords,viewPassword,editPass} = useContext(PasswordContext);
+     const {passwords,viewPassword,editPass,isEditForm} = useContext(PasswordContext);
 
 
 
@@ -84,7 +84,7 @@ const Password = () => {
                 }
             })
         })
-        
+
   
     },[]);
     
@@ -95,10 +95,13 @@ const Password = () => {
       <>     
 
             {/*add password modal  component*/}
-              <AddPasswordModal/>
+              {/* <AddPasswordModal/> */}
               
              {/*view/edit password modal component*/}
-              <EditPasswordModal />
+
+             
+             {(isEditForm)? <EditPasswordModal /> : null  }
+              
               
               <div className="password ">
                 <div className="password-container">

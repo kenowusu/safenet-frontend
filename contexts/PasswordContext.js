@@ -14,18 +14,13 @@ const PasswordContextProvider = (props)=>{
     const [passValErr,setPassValErr] = useState('');
 
     //=====edit password state====//
+    const [isEditForm,setIsEditForm] = useState(false);
     const [editUrl,setEditUrl] = useState('');
     const [editName,setEditName] = useState('');
     const [editUsername,setEditUsername] = useState('');
     const [editPassword,setEditPassword] = useState('');
     
-    const editPass = {
-        editUrl,
-        editName,
-        editUsername,
-        editPassword
-    
-    }
+
 
 
     //==================fetch Passwords===========//
@@ -92,6 +87,7 @@ const PasswordContextProvider = (props)=>{
                 setUsername('');
                 setPassword('');
                 document.getElementById("addPasswordModal").classList.toggle('modal_is_hidden');
+                
         
                 
 
@@ -130,15 +126,15 @@ const PasswordContextProvider = (props)=>{
                const passRes = await passReq.json();
                let password = passRes.password;
             
-               
+              
                //===========show Password Edit modal==============//
                setEditUrl(password.url);
                setEditName(password.name);
                setEditPassword(password.password);
                setEditUsername(password.username)
-
-               console.log(editPass)
-               document.querySelector('#editPasswordModal').classList.toggle('modal_is_hidden');
+               
+               setIsEditForm(true)
+             
               return;
            }
           
@@ -155,7 +151,13 @@ const PasswordContextProvider = (props)=>{
             passValErr,
             addPassword,
             viewPassword,
-            editPass
+            editUrl,
+            editPassword,
+            editUsername,
+            editName,
+            isEditForm,
+            setIsEditForm,
+
                                         
              }}>
             {props.children}
