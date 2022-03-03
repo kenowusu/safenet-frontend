@@ -95,7 +95,7 @@ const Password = () => {
       <>     
 
             {/*add password modal  component*/}
-              {/* <AddPasswordModal/> */}
+              <AddPasswordModal/>
               
              {/*view/edit password modal component*/}
 
