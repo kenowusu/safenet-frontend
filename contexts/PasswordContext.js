@@ -22,7 +22,7 @@ const PasswordContextProvider = (props)=>{
     const [editPassword,setEditPassword] = useState('');
     const [editPassValErr,setEditPassValErr] = useState('');
     
-
+    const [showDialog,setShowDialog] = useState(false);
 
 
     //==================fetch Passwords===========//
@@ -143,9 +143,32 @@ const PasswordContextProvider = (props)=>{
           
         }
 
+  //=======================delete password =========================//
+  const getPasswordConfirmation = (e)=>{
+      setShowDialog(true);
+  }
+
+  const deletePassword = async()=>{
+
+     const reqOptions = {
+         method:"DELETE",
+         credentials:'include',
+         headers:{
+             "Content-Type":"include"
+         }
+     }
+     const apiUrl = `${api}/api/passwords/password/${editPassId}`;
+     const passReq = await fetch(apiUrl,reqOptions);
+     
+     if(passReq.status === 200){
+         const deletedPassState = passwords.filter(password => password.id !== editPassId);
+         setPasswords(deletedPassState);
+         setShowDialog(false);
+         setIsEditForm(false);
+     }
+  }
 
 
-    
    
 
     useEffect(()=>{
@@ -168,7 +191,11 @@ const PasswordContextProvider = (props)=>{
             isEditForm,
             setIsEditForm,
             editPassValErr,
-            setEditPassValErr
+            setEditPassValErr,
+            deletePassword,
+            getPasswordConfirmation,
+            showDialog,
+            setShowDialog
 
                                         
              }}>

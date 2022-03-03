@@ -116,7 +116,7 @@
 
 
 .modal.modal__dialog.modal__dialog__alert{
-    
+    z-index: 12;
     .modal-container{
         padding:20px; 
         
@@ -135,10 +135,14 @@
        
        .modal-title{
            color:#000;
-           font-weight:400;
        }
     }
-
+    .modal-body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:20px 20px;
+    }
     .modal-footer{
         height:auto;
         min-height: 50px;

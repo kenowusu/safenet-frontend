@@ -11,7 +11,7 @@ import PasswordShowSvg from '../../public/icons/eye-reveal.svg';
 import PasswordOptDropdown from '../dropdown/passwordOptDropdown';
 import AddPasswordModal from '../modal/addPasswordModal';
 import SharePasswordModal from '../modal/sharepasswordModal';
-import Dialog from '../modal-dialog/dialog';
+import DeleteDialog from '../modal-dialog/DeleteDialog';
 
 
 
@@ -29,7 +29,13 @@ const Password = () => {
 
 
      //==== use contexts=======//
-     const {passwords,viewPassword,editPass,isEditForm} = useContext(PasswordContext);
+     const {
+         passwords,
+         viewPassword,
+         editPass,
+         isEditForm,
+         showDialog
+        } = useContext(PasswordContext);
 
 
 
@@ -98,7 +104,7 @@ const Password = () => {
             
 
             {/* modal dialog */}
-            <Dialog/>
+            {(showDialog)? <DeleteDialog/> : null  }
 
          
             {/*add password modal  component*/}
