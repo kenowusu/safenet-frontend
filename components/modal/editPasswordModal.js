@@ -2,6 +2,9 @@
 import {useState,useContext,useEffect} from 'react';
 import { object } from 'yup/lib/locale';
 
+
+//=================import components====================//
+import PasswordOptions from '../options/passwordOptions';
 import { PasswordContext } from '../../contexts/PasswordContext';
 
 
@@ -167,7 +170,10 @@ const EditPasswordModal = ({passwordData}) => {
                 
                 {/* modal-footer */}
                 <div className="modal-footer">
-                    
+                     
+                     {/* passowrd options component  */}
+                     <PasswordOptions/> 
+
 
                     <div className="flex w-full h-full justify-end items-center pr-4">
                         <button type="button" className="btn btn__grey mr-3" data-toggle="modal-dismiss" onClick={hideEditModal} >Cancel</button>

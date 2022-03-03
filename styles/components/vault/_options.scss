@@ -1,0 +1,55 @@
+.editPassOptions{
+    
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    .editPassOptions-btn-delete{
+       border-radius: 3px;
+    //    background-color: #eee;
+       width:35px;
+       height:35px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-right:10px;
+        svg{
+            width:15px;
+
+            path{
+                stroke-width:4;
+                stroke:#000;
+            }
+        }
+
+        &:hover{
+            background-color: #eee;
+        }
+  
+    }
+
+
+    .editPassOptions-btn-share{
+        border-radius: 3px;
+        // background-color: #eee;
+        width:35px;
+        height:35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg{
+            width:20px;
+            path{
+                stroke-width:5;
+                stroke:#000;
+            }
+        }
+
+        
+        &:hover{
+            background-color: #eee;
+        }
+    }
+}

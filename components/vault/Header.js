@@ -65,7 +65,7 @@ const Header = () => {
                          <button className="header-options-importc flex justify-center items-center"><ImportSvg/></button>
                          <button className="header-options-userc header-options-userc-btn  flex justify-center items-center relative"
                           data-toggle="dropdown" data-target="user-options-dropdown" onClick={toggleDropdown}>
-                          <UserSvg onClick={(e)=> e.stopPropagation}/>
+                          <UserSvg onClick={(e)=> console.log('ok')}/>
                           <AccountDropDown/>
                          </button>
                      </div>
