@@ -95,3 +95,52 @@
 
     }
 }
+
+
+//====================modal-dialog==========================================//
+.modal.modal__dialog{
+    
+
+    .modal-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content{
+      height: auto;
+    }
+
+}
+
+
+
+.modal.modal__dialog.modal__dialog__alert{
+    
+    .modal-container{
+        padding:20px; 
+        
+    }
+
+    .modal-content{
+      
+    }
+    
+
+    .modal-header{
+       height: 60px;
+       background-color: transparent;
+       border-bottom: 1px solid #eee;
+
+       
+       .modal-title{
+           color:#000;
+           font-weight:400;
+       }
+    }
+
+    .modal-footer{
+        height:auto;
+        min-height: 50px;
+    }
+}

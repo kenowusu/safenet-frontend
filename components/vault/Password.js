@@ -10,8 +10,9 @@ import PasswordShowSvg from '../../public/icons/eye-reveal.svg';
 //=========import components ====================//
 import PasswordOptDropdown from '../dropdown/passwordOptDropdown';
 import AddPasswordModal from '../modal/addPasswordModal';
-import editPasswordModal from '../modal/editPasswordModal';
-import { array } from 'yup';
+import SharePasswordModal from '../modal/sharepasswordModal';
+import Dialog from '../modal-dialog/dialog';
+
 
 
 //==============import contexts============//
@@ -19,11 +20,12 @@ import {PasswordContext} from '../../contexts/PasswordContext';
 import EditPasswordModal from '../modal/editPasswordModal';
 import AddPassword from './addPassword';
 
+
 const Password = () => {
     const api = process.env.NEXT_PUBLIC_API;
 
     //========set states=================//
-
+    
 
 
      //==== use contexts=======//
@@ -93,7 +95,12 @@ const Password = () => {
 
     return ( 
       <>     
+            
 
+            {/* modal dialog */}
+            <Dialog/>
+
+         
             {/*add password modal  component*/}
               <AddPasswordModal/>
               
