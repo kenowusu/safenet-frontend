@@ -14,11 +14,13 @@ const PasswordContextProvider = (props)=>{
     const [passValErr,setPassValErr] = useState('');
 
     //=====edit password state====//
+    const [editPassId,setPassId] = useState('');
     const [isEditForm,setIsEditForm] = useState(false);
     const [editUrl,setEditUrl] = useState('');
     const [editName,setEditName] = useState('');
     const [editUsername,setEditUsername] = useState('');
     const [editPassword,setEditPassword] = useState('');
+    const [editPassValErr,setEditPassValErr] = useState('');
     
 
 
@@ -128,6 +130,7 @@ const PasswordContextProvider = (props)=>{
             
               
                //===========show Password Edit modal==============//
+               setPassId(password.id);
                setEditUrl(password.url);
                setEditName(password.name);
                setEditPassword(password.password);
@@ -139,6 +142,10 @@ const PasswordContextProvider = (props)=>{
            }
           
         }
+
+
+
+    
    
 
     useEffect(()=>{
@@ -147,16 +154,21 @@ const PasswordContextProvider = (props)=>{
 
     
     return(
-        <PasswordContext.Provider value={{passwords,
+        <PasswordContext.Provider value={{
+            passwords,
+            setPasswords,
             passValErr,
             addPassword,
             viewPassword,
+            editPassId,
             editUrl,
             editPassword,
             editUsername,
             editName,
             isEditForm,
             setIsEditForm,
+            editPassValErr,
+            setEditPassValErr
 
                                         
              }}>

@@ -103,7 +103,7 @@ const Password = () => {
              {(isEditForm)? <EditPasswordModal /> : null  }
               
               
-              <div className="password ">
+            <div className="password ">
                 <div className="password-container">
                     <table className="password-table">
                             <thead  className="password-table-tbh">
@@ -147,9 +147,8 @@ const Password = () => {
                 </div>{/*password-container*/}
 
 
-                </div>
+            </div>
       </>
-
      );
 }
  

@@ -1,5 +1,6 @@
 
 import {useState,useContext,useEffect} from 'react';
+import { object } from 'yup/lib/locale';
 
 import { PasswordContext } from '../../contexts/PasswordContext';
 
@@ -13,9 +14,22 @@ import { PasswordContext } from '../../contexts/PasswordContext';
 const EditPasswordModal = ({passwordData}) => {
 
    //==== use contexts=======//
-   const {editUrl,editName,editPassword,editUsername,setIsEditForm} = useContext(PasswordContext);
+   const {
+            editPassId,
+            editUrl,
+            editName,
+            editPassword,
+            editUsername,
+            setIsEditForm,
+            passwords,
+            editPassValErr,
+            setEditPassValErr,
+            setPasswords
+        } 
+    = useContext(PasswordContext);
 
      const api = process.env.NEXT_PUBLIC_API;
+     const [passId,setPassId] = useState(editPassId);
      const [url,setUrl] = useState(editUrl);
      const [name,setName] = useState(editName);
      const [username,setUsername] = useState(editUsername);
@@ -28,16 +42,55 @@ const EditPasswordModal = ({passwordData}) => {
         setIsEditForm(false)
         console.log('yah! modal was hidden');
     }
-     //edit password states===//
-    
 
-
-     // hide all modals onClick on modal
-    useEffect(()=>{
-     
-        
    
-       },[])
+    const editSavedPassword = async(e)=>{
+        e.preventDefault();
+
+        const savedPasswordId = passId;
+        const apiUrl = `${api}/api/passwords/password/${savedPasswordId}`;
+        const data = {
+            id:savedPasswordId,
+            folder_id:'',
+            url:url,
+            name:name,
+            username:username,
+            password:password
+        }
+        const body = JSON.stringify(data);
+        const reqOptions = {
+            method:"PUT",
+            credentials:'include',
+            body:body,
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }
+
+        //========update password with=========//
+        const passReq = await fetch(apiUrl,reqOptions);
+
+    
+        if(passReq.status == 200 || passReq.status == 422){
+            const passRes = await passReq.json();
+            if(passReq.status == 422){
+                setEditPassValErr(passRes.message);
+                return;
+            }
+            
+            else if(passReq.status == 200){
+                
+                const updatedPasswordIndex = passwords.findIndex(obj=>obj.id == savedPasswordId)
+                 
+              
+              //=================update passwords states=============//
+              passwords[updatedPasswordIndex] = passRes.password
+             
+              setIsEditForm(false);
+            }
+          
+        }
+    }
    
      
 
@@ -63,7 +116,7 @@ const EditPasswordModal = ({passwordData}) => {
                      
                           <div id="valErr" style={{color:"red",padding:"0 0px  15px 150px","fontSize":".9rem","fontWeight":"bold"
                         
-                          }}></div>
+                          }}>{editPassValErr}</div>
 
                           <div className="modal-form-group">
                             <label htmlFor="" className="mr-5 ">Url</label>
@@ -118,7 +171,7 @@ const EditPasswordModal = ({passwordData}) => {
 
                     <div className="flex w-full h-full justify-end items-center pr-4">
                         <button type="button" className="btn btn__grey mr-3" data-toggle="modal-dismiss" onClick={hideEditModal} >Cancel</button>
-                        <button type="submit"   className="btn btn__leave justify-self-start"
+                        <button type="submit"  onClick={editSavedPassword} className="btn btn__leave justify-self-start"
                         >Save</button>
                     </div>
                 {/* modal footer */}
