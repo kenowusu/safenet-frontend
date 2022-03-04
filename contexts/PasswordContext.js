@@ -24,6 +24,8 @@ const PasswordContextProvider = (props)=>{
     
     const [showDialog,setShowDialog] = useState(false);
 
+    const [showSharePasswordModal,setShowPasswordModal] = useState('');
+
 
     //==================fetch Passwords===========//
     const fetchPasswords = async(api)=>{
@@ -169,7 +171,11 @@ const PasswordContextProvider = (props)=>{
   }
 
 
-   
+   //=======================share password modal=====================//
+   const getSharePasswordModal = (e)=>{
+       console.log('ok')
+       setShowPasswordModal(true);
+   }
 
     useEffect(()=>{
         fetchPasswords(api);
@@ -195,7 +201,9 @@ const PasswordContextProvider = (props)=>{
             deletePassword,
             getPasswordConfirmation,
             showDialog,
-            setShowDialog
+            setShowDialog,
+            showSharePasswordModal,
+            getSharePasswordModal,
 
                                         
              }}>

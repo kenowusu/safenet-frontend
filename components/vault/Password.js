@@ -19,6 +19,7 @@ import DeleteDialog from '../modal-dialog/DeleteDialog';
 import {PasswordContext} from '../../contexts/PasswordContext';
 import EditPasswordModal from '../modal/editPasswordModal';
 import AddPassword from './addPassword';
+import sharePasswordModal from '../modal/sharepasswordModal';
 
 
 const Password = () => {
@@ -34,7 +35,8 @@ const Password = () => {
          viewPassword,
          editPass,
          isEditForm,
-         showDialog
+         showDialog,
+         showSharePasswordModal,
         } = useContext(PasswordContext);
 
 
@@ -111,9 +113,10 @@ const Password = () => {
               <AddPasswordModal/>
               
              {/*view/edit password modal component*/}
-
-             
              {(isEditForm)? <EditPasswordModal /> : null  }
+
+             {/* share password modal */}
+             {(showSharePasswordModal)? <SharePasswordModal/> : null  }
               
               
             <div className="password ">

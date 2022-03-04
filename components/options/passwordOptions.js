@@ -13,7 +13,11 @@ const PasswordOptions = () => {
     
 
 //============import contexts===================//
-const {deletePassword,getPasswordConfirmation} = useContext(PasswordContext);
+const {
+        getPasswordConfirmation,
+        getSharePasswordModal
+    }
+         = useContext(PasswordContext);
 
 
 
@@ -24,7 +28,7 @@ const {deletePassword,getPasswordConfirmation} = useContext(PasswordContext);
             <button onClick={getPasswordConfirmation} type="button" className="editPassOptions-btn-delete">
                 <DeleteSvgImage/>
             </button>
-            <button  type="button" className="editPassOptions-btn-share">
+            <button onClick={getSharePasswordModal} type="button" className="editPassOptions-btn-share">
                 <ShareSvgImage/>
             </button>
 

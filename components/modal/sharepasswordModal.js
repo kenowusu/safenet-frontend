@@ -1,4 +1,4 @@
-
+import {useState,useContext} from 'react';
 
 
 
@@ -26,7 +26,7 @@ const sharePasswordModal = () => {
                         <div className="flex flex-column flex-col p-8 pt-20">
 
                          
-    
+                            <input type="text" className="tbox tbox__border" placeholder='email' />
                   
                       
 
@@ -42,7 +42,11 @@ const sharePasswordModal = () => {
                         
 
                       
-                   
+                        <div className="flex w-full h-full justify-end items-center pr-4">
+                            <button type="button" className="btn btn__grey mr-3" data-toggle="modal-dismiss" >Cancel</button>
+                            <button type="submit"   className="btn btn__leave justify-self-start"
+                            >Send</button>
+                        </div>
 
 
                     </div>
