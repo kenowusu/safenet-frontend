@@ -203,6 +203,7 @@ const PasswordContextProvider = (props)=>{
             showDialog,
             setShowDialog,
             showSharePasswordModal,
+            setShowPasswordModal,
             getSharePasswordModal,
 
                                         
