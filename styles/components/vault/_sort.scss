@@ -1,7 +1,11 @@
 //=============sort =============================//
 .sort{
   
-
+    &.dropdown__show{
+        .dropdown{
+            display: flex !important;
+        }
+    }
 
 }
 

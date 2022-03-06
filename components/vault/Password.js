@@ -26,9 +26,6 @@ const Password = () => {
     const api = process.env.NEXT_PUBLIC_API;
 
     //========set states=================//
-    
-
-
      //==== use contexts=======//
      const {
          passwords,
@@ -37,54 +34,13 @@ const Password = () => {
          isEditForm,
          showDialog,
          showSharePasswordModal,
+         showAddPasswordModal
         } = useContext(PasswordContext);
 
-
-
-   
-
-  
     
-    const toggleDropdown = (e) =>{
-        e.stopPropagation();
-
-        //find all elements with dropdown show
-        const allShownDropdowns = document.querySelectorAll('.dropdown__show');
-
-        const getCurrentId = e.target.getAttribute('data-target');
-        
-        const shownDropdowns = Array.prototype.slice.call(allShownDropdowns).filter(shownDropdown=>{
-             return getCurrentId !== shownDropdown.getAttribute('id');
-        })
-
-        shownDropdowns.forEach(openedDropdown=>{
-            openedDropdown.classList.remove('dropdown__show');
-        })
-       
-
-
-        
-             //==get current dropdownId
-        const dropdownId = e.target.getAttribute('data-target');
-
-        //==select current dropdown with dropdownId
-        const dropdown = e.target.querySelector(`#${dropdownId}`);
-
-        //===toggle class on targeted dropdown
-        dropdown.classList.toggle('dropdown__show');
-        
-       
-
-    }
-
-
-    
-
     //===================use effect ================//
     useEffect(()=>{
-       
-       
-
+        //==============hide all dropdowns when body is clicked============//
         document.body.addEventListener('click',()=>{
             const shownDropdowns = document.querySelectorAll('.dropdown');
             shownDropdowns.forEach((shownDropdown)=>{
@@ -94,12 +50,25 @@ const Password = () => {
                 }
             })
         })
-
-  
     },[]);
     
 
-  
+   const showPasswordOptions = (e)=>{
+      e.stopPropagation();
+
+      //==========hide all show dropdowns==========//
+      const shownDropdowns = document.querySelectorAll('.dropdown__show');
+      shownDropdowns.forEach(openedDropdown=>{
+            openedDropdown.classList.remove('dropdown__show');
+        })
+       
+      //=========show current password dropdown===============
+      let passwordDropdownButton = e.target;
+      let passwordDropdown = passwordDropdownButton.childNodes[1];
+      passwordDropdown.classList.toggle('dropdown__show');
+      
+
+   }
 
     return ( 
       <>     
@@ -110,7 +79,7 @@ const Password = () => {
 
          
             {/*add password modal  component*/}
-              <AddPasswordModal/>
+            {(showAddPasswordModal)? <AddPasswordModal/> : null}  
               
              {/*view/edit password modal component*/}
              {(isEditForm)? <EditPasswordModal /> : null  }
@@ -135,6 +104,7 @@ const Password = () => {
                                 {/* list passwords */}
                                 {passwords.map(password=>{
                                     let passwordtargetid = `pass${uuid()}`;
+                                    let showPasswordDropdown = false;
 
                                     return(
                                         <tr className="password-item-tr" passid={password.id} key={passwordtargetid} onClick={viewPassword} >
@@ -145,7 +115,7 @@ const Password = () => {
                                             </td>
                                             <td className="password-item-td-folder">{password.folder}</td>
                                             <td className="password-item-td-options">
-                                                <button onClick={toggleDropdown} data-toggle="dropdown" data-target={passwordtargetid} className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
+                                                <button  onClick={showPasswordOptions} data-target={passwordtargetid} className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
                                                     ...
 
                                                     {/* password options component */}

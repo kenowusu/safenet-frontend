@@ -40,22 +40,24 @@ const sharePasswordModal = () => {
 
    
 
-
+   const hidePasswordModal = (e)=>{
+     setShowPasswordModal(false);
+   }
 
 
     const shareSuccessText = "Password has been shared successfully";
     return ( 
        <> 
         {/* <PasswordShareDialog/> */}
-        <div className="modal modal__dialog">
+        <div className="modal modal__dialog" onClick={hidePasswordModal}>
             <div className="modal-container">
                 {/* modal-content */}
-                <div className="modal-content"  >
+                <div className="modal-content" onClick={(e)=>e.stopPropagation()} >
 
 
                     {/* modal-header */}
                     <div className="modal-header">
-                        <span className="modal-title">Share Password</span>
+                        <span className="modal-title" >Share Password</span>
                     </div>
 
                     

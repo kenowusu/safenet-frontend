@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect,useState} from 'react';
 //==============svg images ====================//
 
 //========import components===========//
@@ -7,53 +7,36 @@ import SortDropDown from '../dropdown/sortDropdown';
 import SortSvg from '../../public/icons/options/options-sort.svg';
 
 const Sort = () => {
+    
+    const [showSortDropdown,setShowSortDropdown] = useState(false);
 
-    const toggleDropdown = (e) =>{
 
-        e.stopPropagation();
 
-        //find all elements with dropdown show
-        const allShownDropdowns = document.querySelectorAll('.dropdown__show');
+    const toggleSortDropdown = ()=>{
 
-        const getCurrentId = e.target.getAttribute('data-target');
-        
-        const shownDropdowns = Array.prototype.slice.call(allShownDropdowns).filter(shownDropdown=>{
-             return getCurrentId !== shownDropdown.getAttribute('id');
-        })
-
-        shownDropdowns.forEach(openedDropdown=>{
+     //==========hide all show dropdowns==========//
+      const shownDropdowns = document.querySelectorAll('.dropdown__show');
+      shownDropdowns.forEach(openedDropdown=>{
             openedDropdown.classList.remove('dropdown__show');
         })
        
-
- 
-  
-        //==get current dropdownId
-        const dropdownId = e.target.getAttribute('data-target');
-        console.log(dropdownId)
-
-        // //==select current dropdown with dropdownId
-        const dropdown = document.querySelector(`#${dropdownId}`);
-        console.log(dropdown)
-
-        // //===toggle class on targeted dropdown
-        dropdown.classList.toggle('dropdown__show');
-
+        setShowSortDropdown(!showSortDropdown);
     }
         
     return ( 
-        <div className="sort">
+        <div className="sort" onClick={(e)=>e.stopPropagation()}>
 
             <div className="sort-container flex  items-center ">
 
               <p className="sort-text">Passwords</p>
 
               <div className="sort-option flex justify-end items-center">
-                  <button className="sort-option-imgc sort-option-btn flex justify-center items-center relative ">
+                  <button  onClick={toggleSortDropdown} className="sort-option-imgc sort-option-btn flex justify-center items-center relative ">
                       {/* <SortSvg/> */}
-                      <p className="sort-option-text" onClick={toggleDropdown} data-toggle="dropdown"
+                      <p className="sort-option-text"  data-toggle="dropdown"
                        data-target="dropdown-sort">Sort</p>
-                      <SortDropDown/>
+                      {/* sort dropdown component */}
+                      {(showSortDropdown)?<SortDropDown/>:null}
                    </button>
                   
               </div>{/*sort option*/}

@@ -1,15 +1,19 @@
-import {useEffect} from 'react';
+import {useEffect,useContext} from 'react';
 
+import { PasswordContext } from '../../contexts/PasswordContext';
 
 //=======================components =================//
 import AddPasswordSvg from '../../public/icons/options/options-add.svg';
 
 const AddPassword = () => {
-    // useEffect(()=>{
-    //  const addPasswordBtn
-    // },[])
+    const {showAddPasswordModal,setShowAddPasswordModal}  = useContext(PasswordContext);
+    
+    const addPasswordModal = ()=>{
+        console.log('button has been clicked');
+        setShowAddPasswordModal(!showAddPasswordModal);
+    }
     return ( 
-        <button className="addPasswordBtn flex justify-center items-center" data-toggle="modal" data-target="addPasswordModal">
+        <button onClick={addPasswordModal} className="addPasswordBtn flex justify-center items-center" data-toggle="modal" data-target="addPasswordModal">
             <AddPasswordSvg/>
         </button>
      );

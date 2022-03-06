@@ -22,6 +22,8 @@ const PasswordContextProvider = (props)=>{
     const [editPassword,setEditPassword] = useState('');
     const [editPassValErr,setEditPassValErr] = useState('');
     
+
+    const [showAddPasswordModal,setShowAddPasswordModal] = useState(false);
     const [showDialog,setShowDialog] = useState(false);
 
     const [showSharePasswordModal,setShowPasswordModal] = useState('');
@@ -264,7 +266,9 @@ const PasswordContextProvider = (props)=>{
             setShareErr,
             shareEmail,
             setShareEmail,
-            passIsShared
+            passIsShared,
+            showAddPasswordModal,
+            setShowAddPasswordModal
 
                                         
              }}>

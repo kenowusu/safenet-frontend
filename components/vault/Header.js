@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect,useState} from 'react';
 
 import Image from 'next/image';
 
@@ -12,43 +12,11 @@ import UserSvg from '/public/icons/options/options-user.svg';
 import AccountDropDown from '../dropdown/accountDropDown';
 
 const Header = () => {
-    const toggleDropdown = (e) =>{
-
-
-        e.stopPropagation();
-
-        //find all elements with dropdown show
-        const allShownDropdowns = document.querySelectorAll('.dropdown__show');
-
-        const getCurrentId = e.target.getAttribute('data-target');
-        
-        const shownDropdowns = Array.prototype.slice.call(allShownDropdowns).filter(shownDropdown=>{
-             return getCurrentId !== shownDropdown.getAttribute('id');
-        })
-
-        shownDropdowns.forEach(openedDropdown=>{
-            openedDropdown.classList.remove('dropdown__show');
-        })
-       
-
-
-        //==get current dropdownId
-        const dropdownId = e.target.getAttribute('data-target');
-
-        //==select current dropdown with dropdownId
-        const dropdown = document.querySelector(`#${dropdownId}`);
-
-        //===toggle class on targeted dropdown
-        dropdown.classList.toggle('dropdown__show');
-
+    const [showHeaderDropdown,setShowHeaderDropdown] = useState(false);
+    
+    const toggleHeader = (e)=>{
+        setShowHeaderDropdown(!showHeaderDropdown);
     }
-
-    
-    useEffect(()=>{
-    
-
-           
-    },[]);  
     
     return ( 
         <div className="header">
@@ -63,10 +31,11 @@ const Header = () => {
                  <div className="header-options">
                      <div className="header-options-container">
                          <button className="header-options-importc flex justify-center items-center"><ImportSvg/></button>
-                         <button className="header-options-userc header-options-userc-btn  flex justify-center items-center relative"
-                          data-toggle="dropdown" data-target="user-options-dropdown" onClick={toggleDropdown}>
-                          <UserSvg onClick={(e)=> console.log('ok')}/>
-                          <AccountDropDown/>
+                         <button onClick={toggleHeader} className="header-options-userc header-options-userc-btn  flex justify-center items-center relative"
+                            data-toggle="dropdown" data-target="user-options-dropdown" >
+                            <UserSvg />
+                            {/* account dropdown component */}
+                            {(showHeaderDropdown)? <AccountDropDown/>:null}
                          </button>
                      </div>
                  </div>          

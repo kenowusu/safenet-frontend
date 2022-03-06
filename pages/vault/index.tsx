@@ -47,15 +47,17 @@ export const getServerSideProps = async(context)=>{
 
 const PasswordPage: NextPage = () => {
   return (
-    <div className="page_container " >
-      <Header/>
-      <Sort/>
+    <div className="page_container">
       <PasswordContextProvider>
-        <Password/>
+        <Header/>
+        <Sort/>
+        
+          <Password/>
+        
+      
+        <AddPassword/>
+        <MenuSidebar/>
       </PasswordContextProvider>
-     
-      <AddPassword/>
-      <MenuSidebar/>
       
     </div>
   )

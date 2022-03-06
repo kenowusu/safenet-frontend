@@ -2,11 +2,7 @@ import { useEffect } from "react";
 
 
 const PasswordOptDropdown = (props) => {
-    useEffect(()=>{
-   
-           
-  
-    },[])
+
     
     return ( 
         <div className="dropdown dropdown__password absolute" id={props.passwordId} onClick={(e)=> e.stopPropagation()}>

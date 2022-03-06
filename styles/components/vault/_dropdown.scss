@@ -1,7 +1,7 @@
 
 //===================.dropdown==============================//
 .dropdown{
-    display: none;
+
     position:absolute;
     z-index:4;
 
@@ -10,12 +10,14 @@
         right:0px;
     }
     &.dropdown__password{
+        display: none;
         top: -2px;
         right: 38px;
     }
 
     &.dropdown__sort{
         top:18px;
+        right:0;
     }
     &.dropdown__show{
         display:flex;
