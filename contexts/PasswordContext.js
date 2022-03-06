@@ -1,7 +1,7 @@
 import {useState,createContext, useEffect} from 'react';
 import Cookies from 'universal-cookie';
 const cookie = require('cookie');
-
+import isEmail from 'validator/lib/isEmail';
 
 export const PasswordContext = createContext();
 
@@ -25,6 +25,12 @@ const PasswordContextProvider = (props)=>{
     const [showDialog,setShowDialog] = useState(false);
 
     const [showSharePasswordModal,setShowPasswordModal] = useState('');
+
+    const [shareErr,setShareErr] = useState('');
+
+    const [shareEmail,setShareEmail] = useState('');
+
+    const [passIsShared,setIsPasswordIsShared] = useState(false); 
 
 
     //==================fetch Passwords===========//
@@ -172,10 +178,57 @@ const PasswordContextProvider = (props)=>{
 
 
    //=======================share password modal=====================//
-   const getSharePasswordModal = (e)=>{
-       console.log('ok')
-       setShowPasswordModal(true);
-   }
+        const getSharePasswordModal = (e)=>{
+            setShowPasswordModal(true);
+        }
+
+        //========================share Password============//
+
+        const sharePassword = async()=>{
+            
+            const apiUrl = `${api}/api/tools/share_password`;
+            const data = {
+                email:shareEmail,
+                passwordId:editPassId
+            }
+            const body = JSON.stringify(data);
+            const reqOptions = {
+                method:"POST",
+                body:body,
+                credentials:"include",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+
+            }
+
+            if(!isEmail(shareEmail)){
+                console.log(shareErr)
+                setShareErr('Enter valid email');
+                return;
+            }    
+            //================send password=======//
+            const passReq = await fetch(apiUrl,reqOptions);
+
+            if(passReq.status == 200 ||  passReq.status == 500){
+                const passRes = await passReq.json();
+                if(passReq.status == 500){
+
+                    return setShareErr(passRes.message);
+                }else if(passReq.status == 200){
+                    setShareErr('');
+                    setIsPasswordIsShared(true);
+                }
+            }
+            
+        }
+
+       //============hide Share Password Modal================
+        const hideSharePasswordModal = (e)=>{
+            setShareErr('');
+            setShowPasswordModal(false);
+          }
+        
 
     useEffect(()=>{
         fetchPasswords(api);
@@ -205,6 +258,13 @@ const PasswordContextProvider = (props)=>{
             showSharePasswordModal,
             setShowPasswordModal,
             getSharePasswordModal,
+            hideSharePasswordModal,
+            sharePassword,
+            shareErr,
+            setShareErr,
+            shareEmail,
+            setShareEmail,
+            passIsShared
 
                                         
              }}>
