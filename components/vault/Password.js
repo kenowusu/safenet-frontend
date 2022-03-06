@@ -56,18 +56,21 @@ const Password = () => {
    const showPasswordOptions = (e)=>{
       e.stopPropagation();
 
-      //==========hide all show dropdowns==========//
-      const shownDropdowns = document.querySelectorAll('.dropdown__show');
-      shownDropdowns.forEach(openedDropdown=>{
+      //==========hide all shown dropdowns leaving and show current one==========//
+     //find all elements with dropdown show
+        const allShownDropdowns = document.querySelectorAll('.dropdown__show');
+        const getCurrentId = e.target.getAttribute('data-target');
+        const shownDropdowns = Array.prototype.slice.call(allShownDropdowns).filter(shownDropdown=>{
+            return getCurrentId !== shownDropdown.getAttribute('id');
+        })
+        shownDropdowns.forEach(openedDropdown=>{
             openedDropdown.classList.remove('dropdown__show');
         })
-       
+        
       //=========show current password dropdown===============
       let passwordDropdownButton = e.target;
       let passwordDropdown = passwordDropdownButton.childNodes[1];
       passwordDropdown.classList.toggle('dropdown__show');
-      
-
    }
 
     return ( 

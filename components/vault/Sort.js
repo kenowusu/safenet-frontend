@@ -24,7 +24,7 @@ const Sort = () => {
     }
         
     return ( 
-        <div className="sort" onClick={(e)=>e.stopPropagation()}>
+        <div className="sort">
 
             <div className="sort-container flex  items-center ">
 
