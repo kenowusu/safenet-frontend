@@ -122,7 +122,7 @@ const Password = () => {
                                                     ...
 
                                                     {/* password options component */}
-                                                    <PasswordOptDropdown url={password.url} passid={password.id} />
+                                                    <PasswordOptDropdown url={password.url} password={password.password} username={password.username} passid={password.id} />
                                                 </button>
                                             </td>
                                         </tr>

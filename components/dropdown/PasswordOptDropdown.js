@@ -1,8 +1,9 @@
 import { useEffect,useContext } from "react";
 import {PasswordContext} from '../../contexts/PasswordContext';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import isUrl from 'validator/lib/isUrl';
 const PasswordOptDropdown = (props) => {
-   const {viewPassword,setShowPasswordModal,editPassId,setPassId} = useContext(PasswordContext);
+   const {viewPassword,setShowPasswordModal,editPassId,setPassId,passwords} = useContext(PasswordContext);
     
     
     const sharePassword = (e)=>{
@@ -12,7 +13,6 @@ const PasswordOptDropdown = (props) => {
        }
        const passId = target.getAttribute('passid');
        setPassId(passId);
-       console.log(editPassId)
        setShowPasswordModal(true); 
     }
 
@@ -38,8 +38,8 @@ const PasswordOptDropdown = (props) => {
 
                 <div className="dropdown-option">
                     <div onClick={viewPassword}  className="dropdown-option-item"><span  className="dropdown-option-item-text">View Password</span></div>
-                    <div className="dropdown-option-item"><span className="dropdown-option-item-text">Copy Username</span></div>
-                    <div className="dropdown-option-item dropdown-option-item__hide"><span className="dropdown-option-item-text">Copy Password</span></div>
+             <CopyToClipboard text={props.username}><div className="dropdown-option-item"><span className="dropdown-option-item-text">Copy Username</span></div></CopyToClipboard>
+              <CopyToClipboard text={props.password}><div className="dropdown-option-item dropdown-option-item__hide"><span className="dropdown-option-item-text">Copy Password</span></div></CopyToClipboard>
                     <div onClick={gotToWebsite} url={props.url} className="dropdown-option-item dropdown-option-item__show"><span className="dropdown-option-item-text">Go To Website</span></div>
                     <div className="dropdown-option-item" onClick={sharePassword} passid={props.passid}><span  className="dropdown-option-item-text  ">Share Password</span></div>
 
