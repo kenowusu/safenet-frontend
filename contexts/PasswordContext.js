@@ -115,9 +115,9 @@ const PasswordContextProvider = (props)=>{
 
         const viewPassword = async(e,)=>{
             let target = e.target;
-    
+             console.log("I was clicked")
             //========if not tr, go up dom until you find password tr============//
-            for(let i=0;i<4;i++){
+            for(let i=0;i<7;i++){
                 if(target.classList.contains('password-item-tr')){
                     break;
                 }
@@ -244,6 +244,7 @@ const PasswordContextProvider = (props)=>{
             passValErr,
             addPassword,
             viewPassword,
+            setPassId,
             editPassId,
             editUrl,
             editPassword,
