@@ -13,7 +13,7 @@ import AddPasswordModal from '../modal/addPasswordModal';
 import SharePasswordModal from '../modal/sharepasswordModal';
 import DeleteDialog from '../modal-dialog/DeleteDialog';
 import ImportPasswordModal from '../modal/importPasswordModal';
-
+import ImportSuccessfulDialog from '../modal-dialog/ImportSuccessfulDialog';
 
 //==============import contexts============//
 import {PasswordContext} from '../../contexts/PasswordContext';
@@ -35,7 +35,8 @@ const Password = () => {
          showDialog,
          showSharePasswordModal,
          showAddPasswordModal,
-         showImportPasswordModal
+         showImportPasswordModal,
+         showImportSuccessfulDialog,
         } = useContext(PasswordContext);
 
     
@@ -94,6 +95,8 @@ const Password = () => {
             
              {/* share password modal */}
              {(showImportPasswordModal)? <ImportPasswordModal/> : null}
+
+             {(showImportSuccessfulDialog) ? <ImportSuccessfulDialog/> : null}
             <div className="password ">
                 <div className="password-container">
                     <table className="password-table">

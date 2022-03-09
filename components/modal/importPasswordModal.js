@@ -26,7 +26,7 @@ const File = (props)=>{
 
 const ImportPasswordModal = () => {
 
-    const {setPasswords,setShowImportPasswordModal} = useContext(PasswordContext);
+    const {setPasswords,setShowImportPasswordModal,setShowImportSuccessfulDialog} = useContext(PasswordContext);
     const [fileTypeErr,setFileTypeErr] = useState('');
     const [isCsvFile,setIsCsvFile] = useState(false);
     const [csvFile,setCsvFile] = useState('');
@@ -88,6 +88,7 @@ const ImportPasswordModal = () => {
                       const passRes = await passReq.json();
                       setPasswords(passRes);
                       setShowImportPasswordModal(false);
+                      setShowImportSuccessfulDialog(true);
                   }
 
                  }
