@@ -18,7 +18,7 @@ import ImportSuccessfulDialog from '../modal-dialog/ImportSuccessfulDialog';
 //==============import contexts============//
 import {PasswordContext} from '../../contexts/PasswordContext';
 import EditPasswordModal from '../modal/editPasswordModal';
-import AddPassword from './addPassword';
+
 import sharePasswordModal from '../modal/sharepasswordModal';
 
 

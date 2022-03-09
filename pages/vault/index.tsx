@@ -12,7 +12,7 @@ import Header from '../../components/vault/Header';
 import MenuSidebar from '../../components/vault/MenuSidebar';
 import Sort from '../../components/vault/Sort';
 import Password from '../../components/vault/Password';
-import AddPassword from '../../components/vault/addPassword';
+import AddPassword from '../../components/vault/AddPassword';
 import PasswordContextProvider from '../../contexts/PasswordContext';
 
 

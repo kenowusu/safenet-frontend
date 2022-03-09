@@ -1,7 +1,7 @@
 import { useEffect,useContext } from "react";
 import {PasswordContext} from '../../contexts/PasswordContext';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import isUrl from 'validator/lib/isUrl';
+import isURL from 'validator/lib/isURL';
 const PasswordOptDropdown = (props) => {
    const {viewPassword,setShowPasswordModal,editPassId,setPassId,passwords} = useContext(PasswordContext);
     
@@ -22,7 +22,7 @@ const PasswordOptDropdown = (props) => {
            target = target.parentNode;
        }
        let visitUrl = target.getAttribute('url');
-       if(!isUrl(visitUrl,{require_protocol:true})){
+       if(!isURL(visitUrl,{require_protocol:true})){
            window.open(`https://${visitUrl}`,'_blank');
            return;
        }else{
