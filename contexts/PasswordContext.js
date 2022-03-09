@@ -33,7 +33,8 @@ const PasswordContextProvider = (props)=>{
     const [shareEmail,setShareEmail] = useState('');
 
     const [passIsShared,setIsPasswordIsShared] = useState(false); 
-
+   
+    const [showImportPasswordModal,setShowImportPasswordModal] = useState(false);
 
     //==================fetch Passwords===========//
     const fetchPasswords = async(api)=>{
@@ -269,7 +270,9 @@ const PasswordContextProvider = (props)=>{
             setShareEmail,
             passIsShared,
             showAddPasswordModal,
-            setShowAddPasswordModal
+            setShowAddPasswordModal,
+            showImportPasswordModal,
+            setShowImportPasswordModal
 
                                         
              }}>

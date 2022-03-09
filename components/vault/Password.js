@@ -12,7 +12,7 @@ import PasswordOptDropdown from '../dropdown/passwordOptDropdown';
 import AddPasswordModal from '../modal/addPasswordModal';
 import SharePasswordModal from '../modal/sharepasswordModal';
 import DeleteDialog from '../modal-dialog/DeleteDialog';
-
+import ImportPasswordModal from '../modal/importPasswordModal';
 
 
 //==============import contexts============//
@@ -34,7 +34,8 @@ const Password = () => {
          isEditForm,
          showDialog,
          showSharePasswordModal,
-         showAddPasswordModal
+         showAddPasswordModal,
+         showImportPasswordModal
         } = useContext(PasswordContext);
 
     
@@ -89,8 +90,10 @@ const Password = () => {
 
              {/* share password modal */}
              {(showSharePasswordModal)? <SharePasswordModal/> : null  }
-              
-              
+            
+            
+             {/* share password modal */}
+             {(showImportPasswordModal)? <ImportPasswordModal/> : null}
             <div className="password ">
                 <div className="password-container">
                     <table className="password-table">

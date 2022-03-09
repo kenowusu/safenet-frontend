@@ -12,7 +12,7 @@ import UserSvg from '/public/icons/options/options-user.svg';
 import AccountDropDown from '../dropdown/accountDropDown';
 
 const Header = () => {
-    const {setPasswords} = useContext(PasswordContext);
+    const {setPasswords,setShowImportPasswordModal} = useContext(PasswordContext);
     const [showHeaderDropdown,setShowHeaderDropdown] = useState(false);
     const [searchValue,setSearchValue] = useState('');
 
@@ -74,7 +74,8 @@ const Header = () => {
 
                  <div className="header-options">
                      <div className="header-options-container">
-                         <button className="header-options-importc flex justify-center items-center"><ImportSvg/></button>
+                         <button className="header-options-importc flex justify-center items-center"
+                         onClick={()=>setShowImportPasswordModal(true)}><ImportSvg/></button>
                          <button  onClick={toggleHeader} className="header-options-userc header-options-userc-btn  flex justify-center items-center relative"
                             data-toggle="dropdown" data-target="user-options-dropdown" >
                             <UserSvg />
