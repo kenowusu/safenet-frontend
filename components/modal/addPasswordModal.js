@@ -4,6 +4,11 @@ import { PasswordContext } from "../../contexts/PasswordContext";
 
 
 
+//===================import components===============
+import FolderList from '../folder/FolderList';
+
+
+
 
 
 const AddPasswordModal = () => {
@@ -97,6 +102,10 @@ const AddPasswordModal = () => {
                                 </div>
                                 
                               </div>
+
+                              {/* <div className="modal-form-group"> */}
+                                <FolderList/>
+                              {/* </div> */}
                       
                       
 

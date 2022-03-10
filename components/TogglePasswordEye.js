@@ -30,7 +30,7 @@ const TogglePasswordEye = () => {
         }
     }
     return ( 
-        <button className="toggle-password-svg" onClick={togglePassword}>
+        <button type='button' className="toggle-password-svg" onClick={togglePassword}>
           {(isHidden) ? <ShowPasswordSvgImage /> : <HidePasswordSvgImage/> }   
         </button>
      );
