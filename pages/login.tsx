@@ -4,6 +4,7 @@ import LogoImage from '../public/icons/logo.svg';
 import isLoggedIn from '../lib/user/isLoggedIn';
 import {userVal} from '../validations/userValidation';
 import Cookies from 'universal-cookie';
+import { parse } from 'tldts';
 
 
 //===========import components=========//
@@ -74,7 +75,8 @@ const LoginPage = (props)=>{
     //register user
 const loginUser = async(e)=>{ 
     e.preventDefault();
-   
+    
+    const isProductionCookie = process.env.NEXT_PUBLIC_IS_PRODUCTION_COOKIE;
     const isValid = await userVal.isValid(user);
     
     if(!isValid){return}
@@ -106,8 +108,16 @@ const loginUser = async(e)=>{
           let response = await reguser.json();
           const token = response.token;
           const cookies = new Cookies();
-        
-          const setcookie = await cookies.set('tk',token);
+          const apiUrl = process.env.NEXT_PUBLIC_API;
+           
+          //set authentication token in cookie 
+          const {domain} = parse(apiUrl)
+          const cookieDomain = `.${domain}`;
+          const cookieOptions = {
+              domain:cookieDomain
+          }
+          //set cookie
+          const setcookie = await cookies.set('tk',token,cookieOptions);
           window.location.href = "/vault";
           
       }

@@ -4,6 +4,7 @@ import { userInfo } from 'os';
 import LogoImage from '../public/icons/logo.svg';
 import {userVal} from '../validations/userValidation';
 import Cookies from 'universal-cookie';
+import { parse } from 'tldts';
 
 
 import isLoggedIn from '../lib/user/isLoggedIn';
@@ -109,8 +110,16 @@ const SignupPage = (props)=>{
             let response = await reguser.json();
             const token = response.token;
             const cookies = new Cookies();
+            const apiUrl = process.env.NEXT_PUBLIC_API;
           
-            const setcookie = await cookies.set('tk',token);
+            //set authentication token in cookie 
+            const {domain} = parse(apiUrl)
+            const cookieDomain = `.${domain}`;
+            const cookieOptions = {
+                domain:cookieDomain
+            }
+            //set cookie
+            const setcookie = await cookies.set('tk',token,cookieOptions);
             window.location.href = "/vault";
             
         }

@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import Cookies from 'universal-cookie';
-import {Router, useRouter} from 'next/router';
+import { parse } from 'tldts';
 
 //============import svg images ================//
 import FolderSvgImage from '../../public/icons/options/options-folder.svg';
@@ -24,10 +24,16 @@ const AccountDropDown = () => {
     
 
     const logout = ()=>{
-        console.log('logout clicked')
+        const apiUrl = process.env.NEXT_PUBLIC_API;
+        //set authentication token in cookie 
+        const {domain} = parse(apiUrl)
+        const cookieDomain = `.${domain}`;
+        const cookieOptions = {
+            domain:cookieDomain
+        }
         const cookies = new Cookies();
         //clear cookie and redirect to '/login'
-        cookies.set('tk','');
+        cookies.set('tk','',cookieOptions);
         window.location.href = '/login';
         
     }
