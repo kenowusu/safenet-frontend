@@ -9,6 +9,7 @@ import { parse } from 'tldts';
 
 //===========import components=========//
 import Layout from '../components/home/layout';
+import TogglePasswordEye from '../components/TogglePasswordEye';
 
 export const getServerSideProps = async(context)=>{
     
@@ -127,37 +128,49 @@ const loginUser = async(e)=>{
       
 
     return(
-        <form className="inup" onSubmit={loginUser}>
-            <Link href="/">
-               <a href=""><div className="inup__logo"><LogoImage/></div></a>
-            </Link>
+        <div className='inup'>
+            <div className='inup-container'>
+                <form className="inup-form w-full flex flex-col  items-center" onSubmit={loginUser}>
+                        <div className="inup-logo  flex justify-center items-center">
+                            <Link href="/" >
+                                <a href=""><LogoImage/></a>
+                            </Link>
+                        </div>
 
-            <div className="inup__textlink">
-                <span className="inup__textlink__text">{"Don't have an account?"}</span>
-                <Link href="/signup"><a className="inup__textlink__link">Sign Up</a></Link>
+                        <div className="mb-5  w-full  text-sm text-left flex items-start">
+                            <span className="mr-2">{"Don't have an account?"}</span>
+                            <Link href="/signup"><a className="inup-link">Sign Up</a></Link>
+                        </div>
+
+                        <span style={valError.style} className="inup__validationError w-full">{valError.validationError}</span>
+
+                        <div className="w-full">
+                            <div className="inup-group mb-4">
+                                <label className="inup-label" htmlFor="">Email address</label>
+                                <input  type="text" className="tbox tbox__border" 
+                                onChange={(e)=>setEmail(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="inup-group mb-5  ">
+                                <label  className="inup-label" htmlFor="">Password</label>
+                                <div className='w-full relative'>
+                                    <input type="password" className="tbox w-full tbox__border "
+                                    onChange={(e)=>setPassword(e.target.value)}/>
+                                    {/*TogglePasswordEye Component*/}
+                                    <TogglePasswordEye/>
+                                </div>
+                            </div>
+
+                            <div className="">
+                                <input type="submit" className="btn btn__leave w-full mb-4"  value="Log In"/>
+                                <input type="submit" className="btn btn__crail w-full"  value="Guest Log In"/>
+                            </div>
+                        </div>
+                
+                </form>
             </div>
-
-            <span style={valError.style} className="inup__validationError">{valError.validationError}</span>
-
-            <div className="inup__itemcont">
-                <div className="inup__item">
-                    <label className="inup__item__label" htmlFor="">Email address</label>
-                    <input  type="text" className="inup__item__textbox" 
-                    onChange={(e)=>setEmail(e.target.value)}
-                    />
-                </div>
-
-                <div className="inup__item">
-                    <label  className="inup__item__label" htmlFor="">Password</label>
-                    <input type="password" className="inup__item__textbox"
-                    onChange={(e)=>setPassword(e.target.value)}/>
-                </div>
-
-                <div className="inup__submit">
-                    <input type="submit" className="inup__item__textbox inup__submit__textbox"  value="Log in"/>
-                </div>
-            </div>
-        </form>
+        </div>
     )
 }
 

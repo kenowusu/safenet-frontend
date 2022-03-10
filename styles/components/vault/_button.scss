@@ -4,6 +4,7 @@
     padding:7px 20px;
     border-radius:3px;
     width:100px;
+    cursor: pointer;
 
 
 }
@@ -22,4 +23,9 @@
 .btn__danger{
     background-color: red;
     color: #fff;
+}
+
+.btn__crail{
+    background-color: $color-crail !important;
+    color:#fff;
 }

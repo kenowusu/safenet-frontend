@@ -4,8 +4,7 @@ import Cookies from 'universal-cookie';
 const cookie = require('cookie')
 
 //=======================svg images =========//
-import EllipseSvg from '../../public/icons/options-vertical.svg';
-import PasswordShowSvg from '../../public/icons/eye-reveal.svg';
+
 
 //=========import components ====================//
 import PasswordOptDropdown from '../dropdown/passwordOptDropdown';
