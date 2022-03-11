@@ -39,7 +39,7 @@ const PasswordContextProvider = (props)=>{
     const [showImportSuccessfulDialog,setShowImportSuccessfulDialog] = useState(false);
 
 
-    const [showAddFolderModal,setShowAddFolderModal] = useState(true);
+    const [showAddFolderModal,setShowAddFolderModal] = useState(false);
 
     //==================fetch Passwords===========//
     const fetchPasswords = async(api)=>{

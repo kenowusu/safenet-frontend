@@ -41,7 +41,14 @@ const AddFolderModal = ()=>{
 
         if(folderReq.status == 200 ||  folderReq.status == 422){
           const folderRes = await folderReq.json();
-          console.log((folderRes));
+          
+          if(folderReq.status === 422){
+              setFolderErr(folderRes.message);
+              return 
+          }
+          if(folderReq.status === 200){
+              setShowAddFolderModal(false);
+          }
         }
 
 
