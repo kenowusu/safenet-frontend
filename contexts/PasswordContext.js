@@ -41,6 +41,15 @@ const PasswordContextProvider = (props)=>{
 
     const [showAddFolderModal,setShowAddFolderModal] = useState(false);
 
+    const [showEditFolderModal,setShowEditFolderModal] = useState(false);
+
+    const [editFolderId,setEditFolderId]  = useState('');
+
+    const [editFolderIndex,setEditFolderIndex] = useState('');
+
+
+    const [folders,setFolders] = useState([]);
+
     //==================fetch Passwords===========//
     const fetchPasswords = async(api)=>{
         
@@ -282,6 +291,14 @@ const PasswordContextProvider = (props)=>{
             setShowImportSuccessfulDialog,
             showAddFolderModal,
             setShowAddFolderModal,
+            showEditFolderModal,
+            setShowEditFolderModal,
+            editFolderId,
+            setEditFolderId,
+            editFolderIndex,
+            setEditFolderIndex,
+            folders,
+            setFolders
 
                                         
              }}>

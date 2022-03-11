@@ -1,4 +1,4 @@
-
+import { fips } from 'crypto';
 import {useState,useContext} from 'react';
 
  //==================import contexts ==============//
@@ -7,35 +7,40 @@ import {useState,useContext} from 'react';
 
 
 
-const AddFolderModal = ()=>{
-    const {showAddFolderModal,setShowAddFolderModal} =  useContext(PasswordContext);
+const EditFolderModal = ()=>{
+    const {showAddFolderModal,setShowAddFolderModal,setShowEditFolderModal,editFolderId,editFolderIndex,folders} =  useContext(PasswordContext);
     const [folderErr,setFolderErr] = useState('');
-    const [name,setName] = useState('');
+    const [name,setName] = useState(folders[editFolderIndex].name);
 
 
-    const saveFolder = async(e)=>{
+    const editFolder = async(e)=>{
         e.preventDefault();
         setFolderErr('');
         if(!name){
             setFolderErr('Please provide folder name');
             return;
         }
+        const id = editFolderId;
+        const fid = editFolderIndex;
 
         const data = {
             name:name
         }
+
         const body = JSON.stringify(data);
         const api  = process.env.NEXT_PUBLIC_API;
-        const fetchUrl = `${api}/api/folders`;
+        const fetchUrl = `${api}/api/folders/edit/${id}`;
         const fetchOptions = {
-            method:"POST",
+            method:"PUT",
             credentials:"include",
             body:body,
             headers:{
                 "Content-Type":"application/json"
             }
         }
-        
+
+
+
         //====fetch====================
         const folderReq = await fetch(fetchUrl,fetchOptions);
 
@@ -47,7 +52,7 @@ const AddFolderModal = ()=>{
               return 
           }
           if(folderReq.status === 200){
-              setShowAddFolderModal(false);
+              setShowEditFolderModal(false);
           }
         }
 
@@ -56,7 +61,7 @@ const AddFolderModal = ()=>{
     return ( 
        <> 
         {/* <PasswordShareDialog/> */}
-        <div className="modal modal__dialog" onClick={()=>setShowAddFolderModal(false)} >
+        <div className="modal modal__dialog" onClick={()=>setShowEditFolderModal(false)} >
             <div className="modal-container">
                 {/* modal-content */}
                 <div className="modal-content" onClick={(e)=>e.stopPropagation()} >
@@ -64,7 +69,7 @@ const AddFolderModal = ()=>{
 
                     {/* modal-header */}
                     <div className="modal-header">
-                        <span className="modal-title">Add Folder</span>
+                        <span className="modal-title">Edit Folder</span>
                     </div>
 
                     <div className='p-8'>
@@ -92,9 +97,9 @@ const AddFolderModal = ()=>{
                     {/* modal-footer */}
                     <div className="modal-footer">
                         <div className="flex w-full  justify-end items-center pr-4 ">
-                        <button type="button" className="btn btn__grey mr-3" data-toggle="modal-dismiss" onClick={()=>setShowAddFolderModal(false)}>Cancel</button>
+                        <button type="button" className="btn btn__grey mr-3" data-toggle="modal-dismiss" onClick={()=>setShowEditFolderModal(false)}>Cancel</button>
                         <button type="submit"   className="btn btn__leave justify-self-start"
-                         onClick={saveFolder}>Save</button>
+                         onClick={editFolder}>Save</button>
                         </div>
                     </div>
                      {/* modal footer */}
@@ -109,4 +114,4 @@ const AddFolderModal = ()=>{
 
 }
  
-export default AddFolderModal;
+export default EditFolderModal;
