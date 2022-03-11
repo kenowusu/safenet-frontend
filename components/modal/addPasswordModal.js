@@ -57,8 +57,14 @@ const AddPasswordModal = () => {
 
                     
                     {/* modal-body */}
-                    <div className="modal-body scroll-beautify">
-                        <div className="flex flex-column flex-col p-8 pt-20">
+                    <div className="modal-body ">
+                        <div   className="scroll-beautify flex h-full flex-col p-8"
+                        
+                        style={{
+                            paddingBottom:"50px"
+                        }}>
+                        
+                        
 
                          
                               <div id="valErr" style={{color:"red",padding:"0 0px  15px 150px","fontSize":".9rem","fontWeight":"bold"
@@ -104,7 +110,9 @@ const AddPasswordModal = () => {
                               </div>
 
                               {/* <div className="modal-form-group"> */}
+                              <div className="folder modal-form-group">
                                 <FolderList/>
+                              </div>
                               {/* </div> */}
                       
                       

@@ -13,6 +13,7 @@ import SharePasswordModal from '../modal/sharepasswordModal';
 import DeleteDialog from '../modal-dialog/DeleteDialog';
 import ImportPasswordModal from '../modal/importPasswordModal';
 import ImportSuccessfulDialog from '../modal-dialog/ImportSuccessfulDialog';
+import AddFolderModal from '../folder/AddFolderModal';
 
 //==============import contexts============//
 import {PasswordContext} from '../../contexts/PasswordContext';
@@ -36,6 +37,7 @@ const Password = () => {
          showAddPasswordModal,
          showImportPasswordModal,
          showImportSuccessfulDialog,
+         showAddFolderModal,
         } = useContext(PasswordContext);
 
     
@@ -96,6 +98,10 @@ const Password = () => {
              {(showImportPasswordModal)? <ImportPasswordModal/> : null}
 
              {(showImportSuccessfulDialog) ? <ImportSuccessfulDialog/> : null}
+
+
+             {(showAddFolderModal) ? <AddFolderModal/> : null}
+             
             <div className="password ">
                 <div className="password-container">
                     <table className="password-table">
