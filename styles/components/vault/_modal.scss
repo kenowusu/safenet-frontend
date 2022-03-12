@@ -150,3 +150,20 @@
         min-height: 50px;
     }
 }
+
+//==========toggle-password-svg========
+.toggle-password-svg{
+    position: absolute;
+    top: -1px;
+    right: 1px;
+    width: 33px;
+    height: 39px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg{
+        width:22px;
+    }
+}

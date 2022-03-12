@@ -6,6 +6,7 @@ import { PasswordContext } from "../../contexts/PasswordContext";
 
 //===================import components===============
 import FolderList from '../folder/FolderList';
+import TogglePasswordEye from "../TogglePasswordEye";
 
 
 
@@ -101,11 +102,13 @@ const AddPasswordModal = () => {
                                 
                               </div>
                       
-                              <div className="modal-form-group">
+                              <div className="modal-form-group relative">
                                 <label htmlFor="" className="mr-5 ">Password</label>
                                 <div>
                                     <input className="tbox  tbox__border " type="password"
                                     value={password}  onChange={(e)=>setPassword(e.target.value)} />
+                                    {/*Toggle Eye Password Component*/}
+                                    <TogglePasswordEye/>
                                 </div>
                                 
                               </div>

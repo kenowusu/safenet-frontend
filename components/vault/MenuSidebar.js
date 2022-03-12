@@ -22,7 +22,7 @@ const MenuSidebar = () => {
 
             <ul className="menu__sidebar__ul">
                 <li className="menu__sidebar__li">
-                    <Link href="/passwords">
+                    <Link href="/vault">
                         <a className="menu__sidebar__link active" >
                         <div className="menu__sidebar__imgcont">
                             <PasswordSvg/>
@@ -58,8 +58,9 @@ const MenuSidebar = () => {
                     </a>
                     {/* </Link> */}
                 </li>
-                <li className="menu__sidebar__li">
-                    <Link href="/passwords">
+                <li className="menu__sidebar__li not-implemented">
+                <span className="not-implemented-text">not implemented</span>
+                    {/* <Link href="/passwords"> */}
                         <a className="menu__sidebar__link" >
                         <div className="menu__sidebar__imgcont">
                             <GeneratePasswordSvg/>
@@ -67,7 +68,7 @@ const MenuSidebar = () => {
                         <p className="menu__sidebar__linktext">Generate Password</p>
                         
                     </a>
-                    </Link>
+                    {/* </Link> */}
                 </li>
                
               
