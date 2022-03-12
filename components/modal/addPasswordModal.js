@@ -13,7 +13,7 @@ import FolderList from '../folder/FolderList';
 
 const AddPasswordModal = () => {
     //=========import contexts==============//
-    const {passValErr,addPassword,setShowAddPasswordModal} = useContext(PasswordContext);
+    const {passValErr,addPassword,setShowAddPasswordModal,folderId} = useContext(PasswordContext);
     
     const api = process.env.NEXT_PUBLIC_API;
     const [url,setUrl] = useState('');
@@ -26,7 +26,8 @@ const AddPasswordModal = () => {
         url,
         name,
         username,
-        password
+        password,
+        folder_id:folderId,
     }
 
     const addPasswordModal = (e)=>{

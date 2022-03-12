@@ -27,6 +27,11 @@
     right:0;
     padding: 0 10px 40px 0;
     
+
+    &.folder-select__hidden{
+        display: none;
+    }
+    
 }
 
 .folder-select-title{
@@ -34,6 +39,7 @@
     border: 1px solid #eee;
     padding: 9px 9px;
     margin-right: 20px;
+    cursor:pointer;
 }
 
 .folder-select-icon{
@@ -68,7 +74,7 @@
     text-transform: uppercase;
     font-size:.9rem;
     color:#777777;
-    
+    width:100%;
 
 }
 .folder-option-btn{

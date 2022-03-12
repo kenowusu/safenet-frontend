@@ -132,7 +132,7 @@ const Password = () => {
                                                     <span className="password-item-td-name-name">{password.name}</span>
                                                     <span className='password-item-td-username'>{password.username}</span>
                                             </td>
-                                            <td className="password-item-td-folder">{password.folder}</td>
+                                            <td className="password-item-td-folder">{(password.folder)? password.folder.name : ""}</td>
                                             <td className="password-item-td-options">
                                                 <button  onClick={showPasswordOptions} data-target={passwordtargetid} className='password-item-td-options-ellipse  password-item-td-options-ellipse-btn '>
                                                     ...

@@ -12,15 +12,21 @@ import EditFolderSvgImage from '../../public/icons/options/options-edit.svg';
 
 
 const FolderList = () => {
-
-
+    
+    
     const {setEditFolderIndex,
       setEditFolderId,
       setShowAddFolderModal,
       setShowEditFolderModal,
       folders,
-      setFolders
-    } = useContext(PasswordContext)
+      setFolders,
+      folderId,
+      setFolderId,
+      editFolderIndex
+    } = useContext(PasswordContext);
+
+
+    
 
 
 
@@ -41,15 +47,21 @@ const FolderList = () => {
       setEditFolderIndex(Findex);
       setEditFolderId(folder_id);
       setShowEditFolderModal(true);
-
-
-      
-
-      
       
    }
+  
 
-   const getFolders = async()=>{
+   const selectFolder  = (e)=>{
+     const target = e.target;
+     const fid = target.getAttribute('fid');
+     setFolderId(fid);
+
+     const folder_id = target.getAttribute('fid');
+     const Findex = folders.findIndex(item => item.id === folder_id);
+     setEditFolderIndex(Findex);
+     document.querySelector('.folder-select').classList.toggle('folder-select__hidden');
+   }
+    const getFolders = async()=>{
     const api = process.env.NEXT_PUBLIC_API;
     const fetchUrl = `${api}/api/folders`;
     const fetchOptions = {
@@ -66,6 +78,12 @@ const FolderList = () => {
       setFolders(folderRes.folders);
     }
    }
+
+   const toggleFolderSelect = ()=>{
+     const selectFolder = document.querySelector('.folder-select');
+     selectFolder.classList.toggle('folder-select__hidden');
+    
+   }
     useEffect(()=>{
       getFolders();
     },[])
@@ -74,16 +92,16 @@ const FolderList = () => {
             <label className="folder-title mr-5">Folder</label>
             <div className=" folder-select-container flex ">
                 <p className="folder-select-title flex items-center">
-                  <span className="w-full">Select Folder</span> 
+                  <span className="w-full" onClick={toggleFolderSelect}>{!(folderId) ? "Select Folder" : folders[editFolderIndex].name}</span> 
                   <span onClick={(e)=>setShowAddFolderModal(true)} className='folder-select-icon'>
                     <AddFolderSvgImage/>
                   </span>
                 </p>
                
-                <div className='folder-select scroll-beautify '>
+                <div className='folder-select folder-select__hidden scroll-beautify '>
                   {folders.map((folder)=>{
                       return(
-                        <div className='folder-option' key={uuid()}><span className='folder-option-name'>{folder.name}</span><button  onClick={getEditFolder} type="button" fid={folder.id} className='folder-option-btn'><EditFolderSvgImage/></button></div>
+                        <div className='folder-option' key={uuid()}><span onClick={selectFolder} fid={folder.id} className='folder-option-name'>{folder.name}</span><button  onClick={getEditFolder} type="button" fid={folder.id} className='folder-option-btn'><EditFolderSvgImage/></button></div>
                       )
                   })}
                   

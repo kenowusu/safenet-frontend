@@ -50,6 +50,8 @@ const PasswordContextProvider = (props)=>{
 
     const [folders,setFolders] = useState([]);
 
+    const [folderId,setFolderId] = useState('');
+
     //==================fetch Passwords===========//
     const fetchPasswords = async(api)=>{
         
@@ -113,6 +115,7 @@ const PasswordContextProvider = (props)=>{
                 setName('');
                 setUsername('');
                 setPassword('');
+                setFolderId('');
                 document.getElementById("addPasswordModal").classList.toggle('modal_is_hidden');
                 
         
@@ -298,7 +301,9 @@ const PasswordContextProvider = (props)=>{
             editFolderIndex,
             setEditFolderIndex,
             folders,
-            setFolders
+            setFolders,
+            folderId,
+            setFolderId,
 
                                         
              }}>
