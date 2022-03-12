@@ -6,10 +6,7 @@ import { object } from 'yup/lib/locale';
 //=================import components====================//
 import PasswordOptions from '../options/passwordOptions';
 import { PasswordContext } from '../../contexts/PasswordContext';
-
-
-
-
+import FolderList from '../folder/FolderList';
 
 
 
@@ -27,7 +24,8 @@ const EditPasswordModal = ({passwordData}) => {
             passwords,
             editPassValErr,
             setEditPassValErr,
-            setPasswords
+            setPasswords,
+            folderId
         } 
     = useContext(PasswordContext);
 
@@ -54,7 +52,7 @@ const EditPasswordModal = ({passwordData}) => {
         const apiUrl = `${api}/api/passwords/password/${savedPasswordId}`;
         const data = {
             id:savedPasswordId,
-            folder_id:'',
+            folder_id:folderId,
             url:url,
             name:name,
             username:username,
@@ -158,7 +156,14 @@ const EditPasswordModal = ({passwordData}) => {
                             </div>
                             
                           </div>
-                  
+                          
+
+                            {/* FolderList Component*/}
+                            <div className="folder modal-form-group">
+                                <FolderList/>
+                             </div>
+                          
+                      
                   
 
                     </div>

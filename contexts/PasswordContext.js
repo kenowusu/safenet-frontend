@@ -119,8 +119,7 @@ const PasswordContextProvider = (props)=>{
                 document.getElementById("addPasswordModal").classList.toggle('modal_is_hidden');
                 
         
-                
-
+        
             }
 
         }

@@ -110,12 +110,11 @@ const AddPasswordModal = () => {
                                 
                               </div>
 
-                              {/* <div className="modal-form-group"> */}
+                              {/* FolderList Component*/}
                               <div className="folder modal-form-group">
                                 <FolderList/>
                               </div>
-                              {/* </div> */}
-                      
+                          
                       
 
                         </div>
