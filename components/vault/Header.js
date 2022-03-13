@@ -7,6 +7,7 @@ import Image from 'next/image';
 import SearchSvg from '/public/icons/options/options-search.svg';
 import ImportSvg from '/public/icons/options/options-import.svg';
 import UserSvg from '/public/icons/options/options-user.svg';
+import CloseSvgImage from '/public/icons/options/options-close.svg';
 
 //=============import components ==========================//
 import AccountDropDown from '../dropdown/accountDropDown';
@@ -69,7 +70,9 @@ const Header = () => {
               
                  <div className="header-searchbox">
                      <input value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} type="text" className="header-searchbox-textbox" name="search" />
-                     <label className="header-searchbox-imgc flex justify-center items-center" htmlFor="search" ><SearchSvg/></label>
+                     <label className="header-searchbox-imgc " htmlFor="search" >
+                      {(!searchValue) ? <button className='btn btn-search'><SearchSvg/></button> : <button className='btn btn-close' onClick={()=>setSearchValue('')}><CloseSvgImage/></button> }   
+                     </label>
                  </div>{/* searchbox container*/}
 
                  <div className="header-options">
