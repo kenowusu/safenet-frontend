@@ -48,7 +48,7 @@ const PasswordShareDialog = () => {
                     <div className="modal-footer flex justify-center items-center">
                         <div className="flex w-full h-full justify-end items-center pr-4">
                             
-                            <button className="btn btn__grey mr-5" onClick={}>Cancel</button>
+                            <button className="btn btn__grey mr-5" >Cancel</button>
                             <button className="btn btn__leave" >Send</button>
                         </div>
                       

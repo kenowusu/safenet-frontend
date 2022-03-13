@@ -23,7 +23,8 @@ const SharePasswordModalOptions = ()=>{
 
 
 }
-const sharePasswordModal = () => {
+const SharePasswordModal = () => {
+    const shareSuccessText = "Password has been shared successfully";
     const {hideSharePasswordModal,editPassword,editPassId,shareErr,shareEmail,setShareEmail,passIsShared} = useContext(PasswordContext);
     const API = process.env.NEXT_PUBLIC_API;
     //=============set states===============
@@ -45,7 +46,7 @@ const sharePasswordModal = () => {
    }
 
 
-    const shareSuccessText = "Password has been shared successfully";
+    
     return ( 
        <> 
         {/* <PasswordShareDialog/> */}
@@ -98,4 +99,4 @@ const sharePasswordModal = () => {
 
 }
  
-export default sharePasswordModal;
+export default SharePasswordModal;

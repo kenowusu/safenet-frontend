@@ -56,11 +56,11 @@ const LoginPage = (props)=>{
       const user = {email,password};
 
           //use Effects
-    useEffect(async()=>{
+    useEffect(()=>{
        
         setValError({validationError:"",style:{display:'none'}})
         try{
-            const validateUser =  await userVal.validateSync(user);
+            const validateUser =   userVal.validateSync(user);
           }catch(err){
             let formerr  = err.errors[0];
             if(counter >=1){
