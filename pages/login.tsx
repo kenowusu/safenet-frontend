@@ -5,7 +5,7 @@ import isLoggedIn from '../lib/user/isLoggedIn';
 import {userVal} from '../validations/userValidation';
 import Cookies from 'universal-cookie';
 import { parse } from 'tldts';
-
+import guestUserLogin from '../lib/user/guestUserLogin';
 
 //===========import components=========//
 import Layout from '../components/home/layout';
@@ -164,7 +164,9 @@ const loginUser = async(e)=>{
 
                             <div className="">
                                 <input type="submit" className="btn btn__leave w-full mb-4"  value="Log In"/>
-                                <input type="submit" className="btn btn__crail w-full"  value="Guest Log In"/>
+                                <input type="submit" className="btn btn__crail w-full"  value="Guest Log In"
+                                 onClick={guestUserLogin}
+                                />
                             </div>
                         </div>
                 
