@@ -4,6 +4,7 @@ import LogoImage from '../public/icons/logo.svg';
 import isLoggedIn from '../lib/user/isLoggedIn';
 import {userVal} from '../validations/userValidation';
 import Cookies from 'universal-cookie';
+import Head from 'next/head';
 import { parse } from 'tldts';
 import guestUserLogin from '../lib/user/guestUserLogin';
 
@@ -128,6 +129,11 @@ const loginUser = async(e)=>{
       
 
     return(
+       <>
+        <Head>
+            <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+            <title>Rottpass | Log In</title>
+        </Head>
         <div className='inup'>
             <div className='inup-container'>
                 <form className="inup-form w-full flex flex-col  items-center" onSubmit={loginUser}>
@@ -173,6 +179,7 @@ const loginUser = async(e)=>{
                 </form>
             </div>
         </div>
+        </>
     )
 }
 

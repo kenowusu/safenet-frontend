@@ -9,7 +9,6 @@ const AddPassword = () => {
     const {showAddPasswordModal,setShowAddPasswordModal}  = useContext(PasswordContext);
     
     const addPasswordModal = ()=>{
-        console.log('button has been clicked');
         setShowAddPasswordModal(!showAddPasswordModal);
     }
     return ( 

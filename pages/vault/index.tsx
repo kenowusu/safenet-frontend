@@ -47,7 +47,12 @@ export const getServerSideProps = async(context)=>{
 
 const PasswordPage: NextPage = () => {
   return (
+ 
     <div className="page_container">
+        <Head>
+          <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+          <title>Rottpass | Vault</title>
+      </Head>
       <PasswordContextProvider>
         <Header/>
         <Sort/>

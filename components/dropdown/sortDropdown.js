@@ -22,8 +22,11 @@ const SortDropDown = () => {
    const filterByMostRecent = ()=>{
     const cpPasswords = [...passwords];
     const sortByMostRecent = sortArray(cpPasswords,{
-        by:'created_at',
-        order:'desc'
+        by:'createdDate',
+        order:'desc',
+        computed:{
+            createdDate: cpPassword=>Date.parse(cpPassword.created_at)
+        }
     })
     setPasswords(sortByMostRecent);
    }

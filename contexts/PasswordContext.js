@@ -132,7 +132,6 @@ const PasswordContextProvider = (props)=>{
 
         const viewPassword = async(e,)=>{
             let target = e.target;
-             console.log("I was clicked")
             //========if not tr, go up dom until you find password tr============//
             for(let i=0;i<7;i++){
                 if(target.classList.contains('password-item-tr')){
@@ -222,7 +221,6 @@ const PasswordContextProvider = (props)=>{
             }
 
             if(!isEmail(shareEmail)){
-                console.log(shareErr)
                 setShareErr('Enter valid email');
                 return;
             }    
@@ -246,6 +244,8 @@ const PasswordContextProvider = (props)=>{
         const hideSharePasswordModal = (e)=>{
             setShareErr('');
             setShowPasswordModal(false);
+            setIsPasswordIsShared(false);
+            setShareEmail('');
           }
         
 

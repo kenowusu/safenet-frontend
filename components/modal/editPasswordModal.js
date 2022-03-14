@@ -42,7 +42,6 @@ const EditPasswordModal = ({passwordData}) => {
 
      const hideEditModal = (e)=>{
         setIsEditForm(false)
-        console.log('yah! modal was hidden');
     }
 
    

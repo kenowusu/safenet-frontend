@@ -62,7 +62,6 @@ const ImportPasswordModal = () => {
          const fetchUrl = `${api}/api/tools/import_password`;
          const data = new FormData();
          const file = csvFile;
-         console.log(file);
          data.append('password_import',file);
          const xhr = new XMLHttpRequest();
          xhr.open('POST',fetchUrl);

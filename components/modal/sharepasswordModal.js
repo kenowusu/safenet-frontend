@@ -25,7 +25,7 @@ const SharePasswordModalOptions = ()=>{
 }
 const SharePasswordModal = () => {
     const shareSuccessText = "Password has been shared successfully";
-    const {hideSharePasswordModal,editPassword,editPassId,shareErr,shareEmail,setShareEmail,passIsShared} = useContext(PasswordContext);
+    const {hideSharePasswordModal,editPassword,editPassId,shareErr,shareEmail,setShareEmail,passIsShared,setIsPasswordIsShared} = useContext(PasswordContext);
     const API = process.env.NEXT_PUBLIC_API;
     //=============set states===============
     const [email,setEmail] = useState('');
@@ -43,6 +43,7 @@ const SharePasswordModal = () => {
 
    const hidePasswordModal = (e)=>{
      setShowPasswordModal(false);
+   
    }
 
 
@@ -83,7 +84,7 @@ const SharePasswordModal = () => {
                     
                     {/* modal-footer */}
                     <div className="modal-footer">
-                    <div className="flex w-full h-full justify-end items-center pr-4">
+                    <div className="flex w-full  justify-end items-center pr-4">
                              {(!passIsShared)?<SharePasswordModalOptions/> : <button className='btn btn__grey' onClick={hideSharePasswordModal}>Close</button>}
                              </div>
                     </div>

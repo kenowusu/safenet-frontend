@@ -1,4 +1,5 @@
 import {useState,useEffect} from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import { userInfo } from 'os';
 import LogoImage from '../public/icons/logo.svg';
@@ -133,6 +134,11 @@ const SignupPage = (props)=>{
 
 
 return(
+    <>
+     <Head>
+            <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+            <title>Rottpass | Sign Up</title>
+     </Head>
     <div className='inup'>
         <div className='inup-container'>
             <form className="inup-form w-full flex flex-col  items-center" onSubmit={registerUser}>
@@ -178,6 +184,7 @@ return(
             </form>
         </div>
     </div>
+    </>
 )
 }
 
