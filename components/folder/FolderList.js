@@ -84,9 +84,9 @@ const FolderList = () => {
      selectFolder.classList.toggle('folder-select__hidden');
     
    }
-    useEffect(()=>{
-      getFolders();
-    },[])
+    // useEffect(()=>{
+    //   getFolders();
+    // },[])
     return ( 
          <>
             <label className="folder-title mr-5">Folder</label>
@@ -101,7 +101,7 @@ const FolderList = () => {
                 <div className='folder-select folder-select__hidden scroll-beautify '>
                   {folders.map((folder)=>{
                       return(
-                        <div className='folder-option' key={uuid()}><span onClick={selectFolder} fid={folder.id} className='folder-option-name'>{folder.name}</span><button  onClick={getEditFolder} type="button" fid={folder.id} className='folder-option-btn'><EditFolderSvgImage/></button></div>
+                        <div className='folder-option' key={uuid()}><span onClick={selectFolder}  className='folder-option-name'>{folder.name}</span><button  onClick={getEditFolder} type="button" className='folder-option-btn'><EditFolderSvgImage/></button></div>
                       )
                   })}
                   

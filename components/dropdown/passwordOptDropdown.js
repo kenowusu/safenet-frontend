@@ -40,8 +40,8 @@ const PasswordOptDropdown = (props) => {
                     <div onClick={viewPassword}  className="dropdown-option-item"><span  className="dropdown-option-item-text">View Password</span></div>
              <CopyToClipboard text={props.username}><div className="dropdown-option-item"><span className="dropdown-option-item-text">Copy Username</span></div></CopyToClipboard>
               <CopyToClipboard text={props.password}><div className="dropdown-option-item dropdown-option-item__hide"><span className="dropdown-option-item-text">Copy Password</span></div></CopyToClipboard>
-                    <div onClick={gotToWebsite} url={props.url} className="dropdown-option-item dropdown-option-item__show"><span className="dropdown-option-item-text">Go To Website</span></div>
-                    <div className="dropdown-option-item" onClick={sharePassword} passid={props.passid}><span  className="dropdown-option-item-text  ">Share Password</span></div>
+                    <div onClick={gotToWebsite}  className="dropdown-option-item dropdown-option-item__show"><span className="dropdown-option-item-text">Go To Website</span></div>
+                    <div className="dropdown-option-item" onClick={sharePassword} ><span  className="dropdown-option-item-text  ">Share Password</span></div>
 
                 </div>{/*dropdown-option */}
             

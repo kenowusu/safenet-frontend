@@ -24,13 +24,7 @@ export const getServerSideProps = async(context)=>{
 
      const isloggedin = await isLoggedIn(API,context);
 
-     if(isloggedin){
-        return{
-            redirect:{
-                destination:"/vault"
-            }
-        }
-     }
+  
 
     return{
         props:{
@@ -48,85 +42,85 @@ export const getServerSideProps = async(context)=>{
 
 const SignupPage = (props)=>{
     
-    //set states
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
-    const [counter,setCounter] = useState(0);
-    const [token,setToken] = useState('');
-    const [valError,setValError] = useState({
-                                            validationError:"",
-                                            style:{display:"none"}                                           
-                                        })
+    // //set states
+    // const [email,setEmail] = useState('');
+    // const [password,setPassword] = useState('');
+    // const [counter,setCounter] = useState(0);
+    // const [token,setToken] = useState('');
+    // const [valError,setValError] = useState({
+    //                                         validationError:"",
+    //                                         style:{display:"none"}                                           
+    //                                     })
 
     
-    const user = {email,password};
+    // const user = {email,password};
     
-    //use Effects
-    useEffect(()=>{
+    // //use Effects
+    // useEffect(()=>{
        
-        setValError({validationError:"",style:{display:'none'}})
-        try{
-            const validateUser = userVal.validateSync(user);
-          }catch(err){
-            let formerr  = err.errors[0];
-            if(counter >=1){
-                setValError({validationError:formerr,style:{display:'inline-block'}})
-            }
-            setCounter(counter+1);
-          }
-    },[email,password]);
+    //     setValError({validationError:"",style:{display:'none'}})
+    //     try{
+    //         const validateUser = userVal.validateSync(user);
+    //       }catch(err){
+    //         let formerr  = err.errors[0];
+    //         if(counter >=1){
+    //             setValError({validationError:formerr,style:{display:'inline-block'}})
+    //         }
+    //         setCounter(counter+1);
+    //       }
+    // },[email,password]);
 
 
            
     
-    //register user
-    const registerUser = async(e)=>{ 
-      e.preventDefault();
+    // //register user
+    // const registerUser = async(e)=>{ 
+    //   e.preventDefault();
 
-      const isValid = await userVal.isValid(user);
+    //   const isValid = await userVal.isValid(user);
       
-      if(!isValid){return}
+    //   if(!isValid){return}
      
  
-        const url = props.url;
-        const api = `${url}/api/users/register`;
-        const body =  JSON.stringify({email,password});
+    //     const url = props.url;
+    //     const api = `${url}/api/users/register`;
+    //     const body =  JSON.stringify({email,password});
        
         
-        let reguser =  await fetch(api,{
-             method:"POST",
-            credentials:'include',
-             body:body,
-             headers:{'Content-Type':"application/json"}
-        })
+    //     let reguser =  await fetch(api,{
+    //          method:"POST",
+    //         credentials:'include',
+    //          body:body,
+    //          headers:{'Content-Type':"application/json"}
+    //     })
 
         
-        if(reguser.status== 400 || reguser.status == 500||  reguser.status==600){
-            let formerr = "Server error,please try again";
-            setValError({validationError:formerr,style:{display:'inline-block'}})
-        }else if(reguser.status == 403){
-            let response = await reguser.json();
-            setValError({validationError:response.message,style:{display:'inline-block'}})
+    //     if(reguser.status== 400 || reguser.status == 500||  reguser.status==600){
+    //         let formerr = "Server error,please try again";
+    //         setValError({validationError:formerr,style:{display:'inline-block'}})
+    //     }else if(reguser.status == 403){
+    //         let response = await reguser.json();
+    //         setValError({validationError:response.message,style:{display:'inline-block'}})
 
-        }else if(reguser.status == 200){
-            let response = await reguser.json();
-            const token = response.token;
-            const cookies = new Cookies();
-            const apiUrl = process.env.NEXT_PUBLIC_API;
+    //     }else if(reguser.status == 200){
+    //         let response = await reguser.json();
+    //         const token = response.token;
+    //         const cookies = new Cookies();
+    //         const apiUrl = process.env.NEXT_PUBLIC_API;
           
-            //set authentication token in cookie 
-            const {domain} = parse(apiUrl)
-            const cookieDomain = `.${domain}`;
-            const cookieOptions = {
-                domain:cookieDomain
-            }
-            //set cookie
-            const setcookie = await cookies.set('tk',token,cookieOptions);
-            window.location.href = "/vault";
+    //         //set authentication token in cookie 
+    //         const {domain} = parse(apiUrl)
+    //         const cookieDomain = `.${domain}`;
+    //         const cookieOptions = {
+    //             domain:cookieDomain
+    //         }
+    //         //set cookie
+    //         const setcookie = await cookies.set('tk',token,cookieOptions);
+    //         window.location.href = "/vault";
             
-        }
+    //     }
        
-    }
+    // }
 
     
 

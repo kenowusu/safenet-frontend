@@ -126,7 +126,7 @@ const Password = () => {
                                     let showPasswordDropdown = false;
 
                                     return(
-                                        <tr className="password-item-tr" passid={password.id} key={passwordtargetid} onClick={viewPassword} >
+                                        <tr className="password-item-tr"  key={passwordtargetid} onClick={viewPassword} >
                                         
                                             <td className="password-item-td-name"  >
                                                     <span className="password-item-td-name-name">{password.name}</span>

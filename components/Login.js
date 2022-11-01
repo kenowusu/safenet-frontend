@@ -75,8 +75,8 @@ export const Login = ()=>{
                             Forgot my password</a>
                         <hr />
                        <div className=" flex items-center mt-3 ">
-                        <span className='inline-block text-xs mr-auto '>If You Don't Have An Account, Create</span>
-                        <a href="" className='auth-link-btn text-xs inline-block' >Register</a>
+                        <span className="inline-block text-xs mr-auto">{"If You Don't Have An Account, Create"}</span>
+                        <a href="/register" className="auth-link-btn text-xs inline-block" >Register</a>
                        </div>
                     </div>
                 </div>

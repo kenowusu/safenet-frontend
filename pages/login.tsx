@@ -50,32 +50,32 @@ const LoginPage = (props)=>{
 
 
       //set states
-      const [email,setEmail] = useState('');
-      const [password,setPassword] = useState('');
-      const [counter,setCounter] = useState(0);
-      const [token,setToken] = useState('');
-      const [valError,setValError] = useState({
-                                              validationError:"",
-                                              style:{display:"none"}                                           
-                                          })
+    //   const [email,setEmail] = useState('');
+    //   const [password,setPassword] = useState('');
+    //   const [counter,setCounter] = useState(0);
+    //   const [token,setToken] = useState('');
+    //   const [valError,setValError] = useState({
+    //                                           validationError:"",
+    //                                           style:{display:"none"}                                           
+    //                                       })
   
       
-      const user = {email,password};
+    //   const user = {email,password};
 
-          //use Effects
-    useEffect(()=>{
+    //       //use Effects
+    // useEffect(()=>{
        
-        setValError({validationError:"",style:{display:'none'}})
-        try{
-            const validateUser =   userVal.validateSync(user);
-          }catch(err){
-            let formerr  = err.errors[0];
-            if(counter >=1){
-                setValError({validationError:formerr,style:{display:'inline-block'}})
-            }
-            setCounter(counter+1);
-          }
-    },[email,password]);
+    //     setValError({validationError:"",style:{display:'none'}})
+    //     try{
+    //         const validateUser =   userVal.validateSync(user);
+    //       }catch(err){
+    //         let formerr  = err.errors[0];
+    //         if(counter >=1){
+    //             setValError({validationError:formerr,style:{display:'inline-block'}})
+    //         }
+    //         setCounter(counter+1);
+    //       }
+    // },[email,password]);
 
 
 
@@ -96,13 +96,6 @@ const LoginPage = (props)=>{
 
 
 
-//define LoginPage Layout 
-LoginPage.getLayout = function getLayout(page){
-    return (
-         <Layout>
-           {page}
-         </Layout>
-    )
-  }
+
   
 export default LoginPage;
