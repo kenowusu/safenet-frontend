@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import LogoImage from '../public/icons/logo.svg';
-
-
+import ServerImg from '../public/icons/server_maintenance.svg';
+import EyeRevealImage from '../public/icons/eye-reveal.svg';
 
 
 
 export const Login = ()=>{
     return(
     
-       <div>
+       <div className='w-full h-full'>
 
-        <div className="auth-container">
+        <div className="auth-container h-full">
 
 
 
@@ -37,9 +37,17 @@ export const Login = ()=>{
                             />
                         </div>
                         <div className='form-group'>
+                        <div className="input-group">
+                            <div className="input-group-append">
+                                <span className="input-group-icon">
+                                    <EyeRevealImage/>
+                                </span>
+                            </div>
                             <input 
-                            className='form-field w-full'
-                            type="password" placeholder='Password' />
+                                className='form-field w-full'
+                                type="password" placeholder='Password'
+                                />
+                        </div>
 
                         </div>
 
@@ -49,15 +57,15 @@ export const Login = ()=>{
                             >Login</button>
                         </div>
 
-                        <div class="flex items-center form-group">
-                            <div class="flex-grow  h-0.5" style={{backgroundColor:"#eee"}}></div>
-                            <div class="flex-grow-0 mx-5 text dark:text-white">or</div>
-                            <div class="flex-grow  h-0.5" style={{backgroundColor:"#eee"}}></div>
+                        <div className="flex items-center form-group">
+                            <div className="flex-grow  h-0.5" style={{backgroundColor:"#eee"}}></div>
+                            <div className="flex-grow-0 mx-5 text dark:text-white">or</div>
+                            <div className="flex-grow  h-0.5" style={{backgroundColor:"#eee"}}></div>
                        </div>
 
                        <div className='form-group'>
                             <button 
-                            className='form-field  w-full'
+                            className='form-field  w-full bg-white'
                             >Guest Login</button>
                         </div>
                     </div>
@@ -67,7 +75,7 @@ export const Login = ()=>{
                             Forgot my password</a>
                         <hr />
                        <div className=" flex items-center mt-3 ">
-                        <span className='inline-block text-sm mr-auto'>If You Don't Have An Account, Create</span>
+                        <span className='inline-block text-xs mr-auto '>If You Don't Have An Account, Create</span>
                         <a href="" className='auth-link-btn text-xs inline-block' >Register</a>
                        </div>
                     </div>
@@ -83,8 +91,11 @@ export const Login = ()=>{
 
 
              {/* auth right starts */}
-            <div className="auth-right">
-                <div className="auth-right-container">
+            <div className="auth-right w-full h-full">
+                <div className="auth-right-container w-full h-full">
+                    <div className="auth-right-img">
+                       
+                    </div>
 
                 </div>
 

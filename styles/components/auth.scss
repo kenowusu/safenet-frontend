@@ -1,6 +1,14 @@
 
-
-
+.auth-container{
+    display: flex;
+    justify-content: center;
+    background-color:#fff7ee;
+    position:fixed;
+    width:100%;
+    height: 100%;
+    overflow: auto;
+}
+/*******auth- title *****/
 .auth-title{
     margin-bottom:50px;
     .page-title{
@@ -13,27 +21,55 @@
     }
 }
 
-.input{
 
-    font: size 0.9em;
-    padding:6px 8px;
- 
-    border-radius:10px;
-    letter-spacing: .5px;
-}
 
 .auth-left{
 
     .auth-left-container{
         padding:20px 25px;
-        max-width:600px;
+        max-width:500px;
         padding-bottom:160px;
+
+        @include lg{
+            padding:40px 50px;
+        
+        }
       
     }
 }
 
 .form-group{
     margin-bottom:25px;
+}
+
+/***********input-field**************/ 
+.input-group{
+    position: relative;
+    
+    input{
+        padding-right:40px;
+    }
+    .input-group-append{
+        position: absolute;
+        right:0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .input-group-icon{
+            z-index:99;
+            display:inline-block;
+            width:30px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:5px 5px;
+            cursor: pointer;
+        }
+    }
+
 }
 /****form-field******/
 .form-field{
@@ -65,5 +101,29 @@
     border:1px solid #eee;
     padding:4px 10px;
     border-radius:8px;
+    background-color: #fff;
 }
 
+
+
+.auth-right{
+    display: none;
+    @include  lg {
+        display: flex;
+        width:700px;
+       
+    }
+
+ &-container{
+    padding:40px;
+    border-radius:20px;
+ }
+}
+
+.auth-right-img{
+ background: url("/img/login-img.jpg");
+ background-size:cover;
+ background-repeat:no-repeat;
+ padding:300px;
+ border-radius:20px;
+}
