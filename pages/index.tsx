@@ -11,6 +11,16 @@ import HomepageIndex from '../components/home/index';
 import Layout from '../components/home/layout';
 
 
+export const getServerSideProps = ()=>{
+  return{
+    redirect:{
+      destination:'/login',
+    },
+    props:{
+
+    }
+  }
+}
 
 const HomePage = ()=>{
 

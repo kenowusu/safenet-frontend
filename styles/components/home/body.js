@@ -5,13 +5,7 @@ const body = css.global
 
 
 `
-@import url('https://use.typekit.net/cem1avc.css');
 
-html,body{
-    height:auto !important;
-    overflow: auto !important;
-    font-family:Nunito,sans-serif;
-}
 
 
 `
